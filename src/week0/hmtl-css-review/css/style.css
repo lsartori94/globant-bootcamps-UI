@@ -1,0 +1,65 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html * {
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+} 
+header, footer, aside, nav {
+  background-color:teal;
+}
+header, footer {
+  text-align: center;
+}
+.header {
+  font-size: 46px ;
+  padding: 20px;  
+}
+.footer {
+  font-size: 10px;
+  padding: 10px;
+}
+.content {
+  font-size: 14px;
+  float: left;
+  padding: 10px;
+  width: 50%;
+}
+.navigation {
+  font-size: 12px;
+  float: left;
+  padding: 10px;
+  width: 25%;
+  height: 306px;
+}
+.sidebar {
+  font-size: 10px;
+  float: left;
+  padding: 10px;
+  width: 25%;
+  height: 306px;
+}
+[class$="r"] {
+  background-color: magenta;
+}
+body [class*="a"]:not([class$="r"]) {
+  background-color: blue;
+}
+.oh-no-inline-styles {
+  background-color: green !important;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .sidebar, .navigation, .content {
+      width: 100%;
+  }
+}
