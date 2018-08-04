@@ -2,9 +2,11 @@
 *{
     font-family:Arial, Helvetica, sans-serif; 
     font-weight: 600;
-    margin:0%;
-    padding:0%;
+    margin: 0%;
+    padding: 0%;
+    
 }
+
 .container{
     list-style: none;
     margin: 0; 
@@ -15,6 +17,9 @@
     flex-direction: row;
     justify-content: flex-end;
     padding: 20px;
+    
+    
+
     
 }
 .container a { 
@@ -27,14 +32,18 @@
    
 .item{
     
-    background-color: rgb(7, 141, 29);
+    background-color: rgb(1, 111, 255);
     padding-top: 2%;
     padding-bottom: 2%;
   }
 
 .header{
+    color: aliceblue;
     font-size: 46px;
+    height: 200px;
     background-color: magenta;
+    background-image: url(http://www.themesltd.com/headers2/half_daft_punk.png);
+
 }
 .footer{
     font-size: 10px;
@@ -43,6 +52,7 @@
 .content{
     font-size: 14px;
     background-color: magenta;
+    
 }
 .navigation{
     font-size: 12px;
