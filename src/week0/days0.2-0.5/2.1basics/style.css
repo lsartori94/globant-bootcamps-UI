@@ -2,9 +2,8 @@
 *{
     font-family:Arial, Helvetica, sans-serif; 
     font-weight: 600;
-    margin: 0%;
     padding: 0%;
-    
+    margin: 0%;
 }
 
 .container{
@@ -45,6 +44,9 @@
     background-image: url(http://www.themesltd.com/headers2/half_daft_punk.png);
 
 }
+.divmid{
+    background-color: magenta;
+}
 .footer{
     font-size: 10px;
     background-color: magenta;
@@ -52,7 +54,16 @@
 .content{
     font-size: 14px;
     background-color: magenta;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 300px;
     
+    
+}
+.itemA{
+
+    background-color: magenta;
 }
 .navigation{
     font-size: 12px;
@@ -68,4 +79,6 @@
 .sidebar{
     font-size: 10px;
      background-color: magenta;
+     width: 20%;
+    height: 50%;
 }
