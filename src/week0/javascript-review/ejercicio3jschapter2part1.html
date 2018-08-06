@@ -1,0 +1,29 @@
+<DOCTYPE html>
+        <html>
+            <body>
+             <head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <meta charset="utf-8">
+                    <title>ejercicios</title>
+                 </head>
+                 
+            <script>
+                 let tablero=" ";
+                let tamaño=8;
+
+            for (let line = 0; line < tamaño; line ++ ){
+                for (let linee = 0; linee < tamaño; linee ++ ){
+                    
+                    if((line+linee) % 2==0) {tablero+=" ";}
+                    else {tablero+="#";}
+                }
+                tablero+="\n";
+             }
+            console.log(tablero);
+             
+             </script>
+
+
+            </body>
+        
+        </html>

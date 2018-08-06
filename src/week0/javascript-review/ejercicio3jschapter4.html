@@ -1,0 +1,60 @@
+<DOCTYPE html>
+        <html>
+            <body>
+             <head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <meta charset="utf-8">
+                    <title>ejercicios</title>
+                 </head>
+                 
+            <script>
+                 function arraytolist(arreglo) {
+                      let lista = null;
+                     for (let i = arreglo.length - 1; i >= 0; i--) {
+                     lista = {value: arreglo[i], rest: lista};
+                     }
+                        return lista;
+                 }
+
+                function listtoarray(lista) {
+                    let arreglo = [];
+                    for (let node = lista; node; node = node.rest) {
+                        arreglo.push(node.value);
+                    }
+                 return arreglo;
+                }
+
+                 function prepend(value, lista) {
+                  return {value, rest: lista};
+                 }
+
+                function nth(lista,pos){
+                 let cont=0;
+                for (let node = lista; node; node = node.rest) {
+                     if(cont==pos){
+          		    return node.value;
+         		     }  
+  		        cont++;
+                }
+                 return undefined;
+
+                } 
+
+                function nthrec(lista, pos) {
+                 if (lista==undefined) return undefined;
+                else if (pos == 0) return lista.value;
+                 else return nth(lista.rest, pos - 1);
+                }
+                console.log(arraytolist([10, 20,2]));
+                console.log(listtoarray(arraytolist([10, 20, 30])));
+                console.log(prepend(10, prepend(20, null)));
+                console.log(nth(arraytolist([25, 22, 9]), 1));
+                console.log(nthrec(arraytolist([25, 22, 9]), 2));
+                console.log(nth(arraytolist([25, 22, 9]), 44));
+                console.log(nthrec(arraytolist([25, 22, 9]), 33));
+             </script>
+
+
+            </body>
+        
+        </html>

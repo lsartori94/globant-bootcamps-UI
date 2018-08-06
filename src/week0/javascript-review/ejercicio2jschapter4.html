@@ -1,0 +1,38 @@
+<DOCTYPE html>
+        <html>
+            <body>
+             <head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <meta charset="utf-8">
+                    <title>ejercicios</title>
+                 </head>
+                 
+            <script>
+            
+            
+      
+            function reversearray(arreglo) {
+                    let devuelve = [];
+                    for (let i =arreglo.length-1 ; i>=0;--i){
+                    devuelve.push(arreglo[i])
+               		 }
+                    return devuelve;
+                    }
+            
+            console.log(reversearray([1,2,3,4]));
+
+            function reversearrayinplace(arreglo) {
+                    for (let i = 0; i < Math.floor(arreglo.length / 2); i++) {
+                    let cambio = arreglo[i];
+                     arreglo[i] = arreglo[arreglo.length - 1 - i];
+                     arreglo[arreglo.length - 1 - i] = cambio;
+                     }
+                     return arreglo;
+                    }
+console.log(reversearrayinplace([1,2,3,4,5]));
+             </script>
+
+
+            </body>
+        
+        </html>

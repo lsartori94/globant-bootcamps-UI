@@ -1,0 +1,53 @@
+<DOCTYPE html>
+        <html>
+            <body>
+             <head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <meta charset="utf-8">
+                    <title>ejercicios</title>
+                 </head>
+                 
+            <script>
+            function range(start,end) {
+                let arreglo = [];
+                for (let i =start ; i<=end;i++){
+                    arreglo.push(i)
+                }
+                return arreglo;
+            }
+            
+            function sum(arreglo){
+                let suma=0;
+                for(let i=0;i<arreglo.length;i++){
+                suma +=arreglo[i];
+                }
+                return suma;
+
+            }
+            function range2(start,end,step) {
+                let arreglo = [];
+      			if(step==undefined){
+                for (let i =start ; i<=end;i++){
+                    arreglo.push(i)
+                }
+                }
+      			else if(step>0){
+                for (let i =start ; i<=end;i+=step){
+                    arreglo.push(i)
+                }
+            		}
+      				else{
+
+                    for (let i =end ; i>=start;i-=(-1*step)){
+                    arreglo.push(i)
+               		 }
+                    }
+                 return arreglo;
+                  }
+            console.log(sum(range2(5,21,-1)));
+             </script>
+
+
+            </body>
+        
+        </html>
