@@ -1,10 +1,36 @@
 <!-- Take this file and open it on a browser, then open the console
     inside developer tools -->
-<script>
-    (function(){
+    <!DOCTYPE html>
+    <html>
+    <body>
+    
+    <p>Parrafo de prueba</p>
+    
+    <button onclick="Function()">Do Magic</button>
+    
+    <script>
+    function Function() {
         "use strict";
-    })()
-</script>
+        var newDiv= document.createElement("div");
+        var newCont= document.createTextNode("this is a div test");
+        newDiv.appendChild(newCont);
+        document.body.appendChild(newDiv);
+        var btn = document.createElement("BUTTON");
+        var t = document.createTextNode("CLICK ME PLS");
+        btn.appendChild(t);
+        document.body.appendChild(btn);
+        btn.onclick = function(){
+            var newDiv2= document.createElement("div");
+            var newCont2= document.createTextNode(" Thank you ! ");
+            newDiv.appendChild(newCont2);
+            document.body.appendChild(newDiv2);
+        }
+    }
+    </script>
+    
+    </body>
+    </html>
+    
 
 <!-- Now it's your turn to make some changes
     - Add at least 2 DOM elements, via code, DOH
