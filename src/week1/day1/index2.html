@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--VERSION 2-->
 <script>
     class Animal {
@@ -49,4 +50,57 @@
     ****      MAKE A 2nd VERSION USING ES6 CLASSES  ****
     ****                                            ****
     ****************************************************
+=======
+<!--VERSION 2-->
+<script>
+    class Animal {
+        constructor(type, food, steps) {
+            this.type = type;
+            this.food = food;
+            this.steps= steps;
+        }
+    };
+    Animal.prototype.talk = function () {
+        console.log(`Hi, I'm an Animal, but also a ${this.type}`);
+
+    };
+    Animal.prototype.eat = function () {
+        console.log(`The ${this.type} eats some ${this.food}`);
+    };
+
+    Animal.prototype.walk=function(){
+        console.log(`The ${this.type} walks ${this.steps} steps away`)
+    };
+    class Cat extends Animal{
+        constructor(name,type, food, steps){
+            super(type, food, steps);
+            this.name= name;
+        }
+        
+    };
+    Cat.prototype.doEverything= function(){
+        console.log(`${this.name} the ${this.type} eats some ${this.food} and then walks ${this.steps} steps away`)
+    };
+
+    let rabbit = new Animal("Rabbit", "carrots",2);
+    let Garfield= new Cat("Garfield","Cat","lasagna",1000);
+    rabbit.talk();
+    rabbit.walk();
+    rabbit.eat();
+    Garfield.doEverything();
+    
+</script>
+<!-- Now it's your turn to make some changes
+    - Refactor the previous code to use getters and settters ok
+    - Add at least 2 more properties
+    - Add at least 2 more methods
+    - Create a new class that inherits from Animal
+    - Override one of the methods you previously defined
+
+    ****************************************************
+    ****               BONUS POINTS                 ****
+    ****      MAKE A 2nd VERSION USING ES6 CLASSES  ****
+    ****                                            ****
+    ****************************************************
+>>>>>>> 543d1a6e0c3298b1b57299ac3aedc35e8533ecef
 -->
