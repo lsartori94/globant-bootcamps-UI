@@ -4,19 +4,28 @@
     (function(){
         "use strict";
         var willPass = "Hi there";
-        wontPass = "nope";
+        var wontPass = "nope";
 
         console.log(`willPass = ${willPass}`);
         console.log(`wontPass = ${wontPass}`);
 
         let someArr = [1, 2, 3, 4];
-
+        let counter = 0;
         function giveMe(inx) {
             return someArr[counter];
         }
+        
+        for ( counter= 0; counter <= someArr.length ; counter++) {
+            let aux= giveMe(counter);
+            if(aux != undefined){
 
-        for (let counter= 0; counter <= someArr.length; counter++) {
             console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
+            }
+            else{
+                throw new Error(`Array value at position ${counter} is not defined`);
+                
+            }
+            
         }
 
         console.log("The code continues");
