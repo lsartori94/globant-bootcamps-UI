@@ -13,12 +13,11 @@
             }
             
             for (let counter= 0; counter <= someArr.length; counter++) {
-                //if a value is undefined, do nothing  
-                if (giveMe(counter) == undefined) {                
+                if (giveMe(counter) == undefined) {
+                    throw new Error(`in Index = ${counter} there is an undefined value`);
                 }
-                else  {
                 console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
-                }
+               
             }
            
             console.log("The code continues");
