@@ -1,7 +1,8 @@
 <script>
+// Rewrite ES6 !! 
 
-    // Declaro la clase "Animal" con sus getters y setters
-    class Animal {
+// Declaro la clase "Animal" con sus getters y setters
+class Animal {
         constructor(type, color, legs, name) {
             this._type = type;
             this._color = color;
@@ -35,32 +36,33 @@
         set name(name){
             this._name = name
         }
-    
-    }      
-  // Métodos que puede realizar la clase "Animal"
-     Animal.prototype.introduce = function() {
-          console.log(`Hi, I'm an Animal, also a ${this.type}, my color is ${this.color}, and i have ${this.legs} legs. It's nice meeting you!`);
-};  
+        
+        // Métodos que puede realizar la clase "Animal"
+        talk() {
+        console.log(`Hi, I'm an Animal, but also a ${this.type}`);
+         };
 
-      Animal.prototype.chooseName = function() {
-         this._name=prompt('Please choose a name for this ' + this._type)
-         console.log(`It's a great name. Now I'm a ${this.type} called ${this.name}. Thank you!`);
-}
-        Animal.prototype.talk = function() {
-          console.log(`Hi, I'm an Animal, but also a ${this.type}`);
-};
+        introduce() {
+        console.log(`Hi, I'm an Animal, also a ${this.type}, my color is ${this.color}, and i have ${this.legs} legs. It's nice meeting you!`);
+        };
+
+        chooseName (){
+        this._name=prompt('Please choose a name for this ' + this._type)
+        console.log(`It's a great name. Now I'm a ${this.type} called ${this.name}. Thank you!`);
+         };
+     
+    }
 
 
- // Declaro la clase "Human" con sus getters y setters
+    // Declaro la clase "Human" con sus getters y setters
 
-class Human extends Animal  {
+    class Human extends Animal  {
         constructor(name, age) {
             super ();
             this._type = 'person';
             this._age = age;
             this._legs = 2;
             this._name = name;
-            
             
         }
         get age(){
@@ -69,20 +71,22 @@ class Human extends Animal  {
         set age(age){
             this._age = age
         }
-    };
-
-// Métodos que puede realizar la clase "Human"
-    Human.prototype.introduce = function() {
+        
+     // Métodos que puede realizar la clase "Human"
+        introduce() {
         console.log(`Hi, my name is ${this.name}, my mom says I'm a really good person (kinda). It's really nice meeting you!`);
-    };
-
-// Pruebas
-let rabbit = new Animal("Rabbit");
-rabbit.talk();
-let elephant = new Animal("Elephant", "gray", 4);
-elephant.introduce();
-let person1 = new Human;
-person1.chooseName();
-person1.introduce();
-
+        };
+    }
+    
+        
+    // Pruebas
+    let rabbit = new Animal("Rabbit");
+    rabbit.talk();
+    let elephant = new Animal("Elephant", "gray", 4);
+    elephant.introduce();
+    let person1 = new Human;
+    person1.chooseName();
+    person1.introduce();
+    
+    
 </script>
