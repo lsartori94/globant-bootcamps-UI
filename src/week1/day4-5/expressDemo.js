@@ -1,10 +1,10 @@
 const express = require('express');
 const fs = require('fs');
-var jsonfile= require('jsonfile');
+var jsonfile = require('jsonfile');
 var file = "C:\\Users\\Mi-PC\\Git Globant Gior\\globant-bootcamps-UI\\src\\week1\\day4-5\\package.json";
 const app = express();
 const port = 3000;
-const err= "FATAL ERROR";
+const err = "FATAL ERROR";
 let random = Math.floor(Math.random() * 100)
 app.get('/', (req, res) => {
     res.send('Hello There!');
@@ -16,13 +16,13 @@ app.get('/whateveriwant', (req, res) => {
     res.redirect(`https://dgtzuqphqg23d.cloudfront.net/cGcDdLCeyi4v6aLqE6mHp4lfXNGoTl87YP3ADJFraIs-2048x1305.jpg`);
 })
 app.get('/jsonload', (req, res) => {
-jsonfile.readFile(file , (err, obj)=>{
+    jsonfile.readFile(file, (err, obj) => {
         if (err) throw err;
-        
+
         res.json(obj);
-        
+
     });
-    
+
 })
 app.listen(port, () => {
     console.log('Example server listening on port ' + port);
