@@ -1,15 +1,50 @@
 <!-- Take this file and open it on a browser, then open the console
     inside developer tools -->
 <script>
-    var Animal = (function(type) {
+    var Animal = (function(type,legs,kingdom) {
         this.type = type;
+        this.legs = legs;
+        this.kingdom = kingdom;
     });
 
-    Animal.prototype.talk = function() {
-        console.log(`Hi, I'm an Animal, but also a ${this.type}`);
+    Animal.prototype.setType = function(value){
+        this.type = value;
     };
 
-    let rabbit = new Animal("Rabbit");
+    Animal.prototype.getType = function(){
+        return this.type;
+    };
+
+    Animal.prototype.setLegs = function(value){
+        this.legs = value;
+    };
+
+    Animal.prototype.getLegs = function(){
+        return this.legs;
+    };
+
+    Animal.prototype.setKingdom = function(value){
+        this.kingdom = value;
+    };
+
+    Animal.prototype.getKingdom = function(){
+        return this.kingdom;
+    };
+
+    Animal.prototype.talk = function() {
+        console.log(`Hi, I'm an Animal, but also a ${this.getType()}`);
+    };
+
+    Animal.prototype.run = function() {
+        console.log(`I'm running with my ${this.getLegs()} legs!`);
+    };
+
+    Animal.prototype.whatAreYou = function(){
+        console.log(`I'm an Animal from the ${this.getKingdom()} kingdom`)
+    };
+
+    
+    let rabbit = new Animal("Rabbit",4,"Animal");
     rabbit.talk();
 </script>
 

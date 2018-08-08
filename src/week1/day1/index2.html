@@ -1,0 +1,90 @@
+<!-- Take this file and open it on a browser, then open the console
+    inside developer tools -->
+    <script>
+        class Animal{
+
+            constructor(type,legs,kingdom){
+                this.type = type;
+                this.legs = legs;
+                this.kingdom = kingdom;
+            };
+            
+            setType(value){
+                this.type = value;
+            };
+    
+            getType(){
+                return this.type;
+            };
+    
+            setLegs(value){
+                this.legs = value;
+            };
+    
+            getLegs(){
+                return this.legs;
+            };
+    
+            setKingdom(value){
+                this.kingdom = value;
+            };
+    
+            getKingdom(){
+                return this.kingdom;
+            };
+    
+            talk() {
+                console.log(`Hi, I'm a ${this.getType()}`);
+            };
+    
+            run() {
+                console.log(`I'm running with my ${this.getLegs()} legs!`);
+            };
+    
+            whatAreYou(){
+                console.log(`I'm an Animal from the ${this.getKingdom()} kingdom`)
+            };
+            
+        }
+
+        class RobotAnimal extends Animal{
+
+            constructor(type,legs,fuel){
+                super(type,legs);
+                this.fuel = fuel;
+            }
+
+            setFuel(value){
+                this.fuel = value;
+            }
+
+            getFuel(){
+                return this.fuel;
+            }
+
+            whatAreYou(){
+                console.log(`I'm an artificial animal created for humans`);
+            }
+        }
+    
+        
+    
+        
+        let rabbit = new Animal("Rabbit",4,"Animal");
+        rabbit.talk();
+    </script>
+    
+    <!-- Now it's your turn to make some changes
+        - Refactor the previous code to use getters and settters
+        - Add at least 2 more properties
+        - Add at least 2 more methods
+        - Create a new class that inherits from Animal
+        - Override one of the methods you previously defined
+    
+        ****************************************************
+        ****               BONUS POINTS                 ****
+        ****      MAKE A 2nd VERSION USING ES6 CLASSES  ****
+        ****                                            ****
+        ****************************************************
+    -->
+    
