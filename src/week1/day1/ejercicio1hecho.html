@@ -13,77 +13,68 @@
     rabbit.talk();
 */
 
-    class Animal{
-        constructor(tipo,color,comida){
+   
+
+var Animal = (function(tipo, color, comida) {
         this.especie = tipo;
         this.colores = color;
         this.comidas = comida;
-        }
-        get tipo (){
-            return this.especie;
-        }
-        set tipo (value){
-
-            this.especie = value;
-        }
-        get color (){
-            return this.colores;
-        }
-        set color (value){
-
-            this.colores = value;
-        }
-        get comida (){
-            return this.comidas;
-        }
-        set comida (value){
-
-            this.comidas = value;
-        }
-        talk(){
-            console.log(`Hi, I'm an Animal, but also a ${this.especie}`);
-
-        }
-        quecomo(){
-            console.log(`Hi, I'm a ${this.especie},and i eat ${this.comidas}`);
-        }
-        quecolor(){
-            console.log(`Hi, I'm a ${this.especie},and i'm  ${this.color}`);
-        }
+    });
+    
+    Animal.prototype.getType = function (){
+        return this.especie;
     }
-
-class extraterrestre extends Animal{
-        constructor(tipo,color,comida,origen){
-         super(tipo,color,comida);   
+    Animal.prototype.setType = function (tipo){
+        this.especie = tipo;
+    }
+    Animal.prototype.getColor = function (){
+        return this.colores;
+    }
+    Animal.prototype.setColor = function (color){
+        this.colores = color;
+    }
+    Animal.prototype.getComida = function (){
+        return this.comidas;
+    }
+    Animal.prototype.setComida = function (comida){
+        this.comidas = comida;
+    }
+    Animal.prototype.talk = function() {
+        console.log(`Hi, I'm an Animal, but also a ${this.especie}`);
+    };
+    Animal.prototype.quecomo = function(){
+        console.log(`Hi, I'm a ${this.especie},and i eat ${this.comidas}`);
+    }
+    Animal.prototype.quecolor = function(){
+        console.log(`Hi, I'm a ${this.especie},and i'm  ${this.colores}`);
+    }
+   
+    
+    function extraterrestre(tipo, color, comida, origen) {
+        Animal.call(this, tipo, color, comida);
         this.planeta = origen;
-        }
-        get planeta (){
-            return this.origen;
-        }
-        set planeta (value){
-
-            this.origen = value;
-        }
-        quecolor(){
-            console.log(`My fur is  ${this.colores},and i'm  sexy}`);
-        }
-}
-
+    }
+    extraterrestre.prototype = Object.create(Animal.prototype);
+    extraterrestre.prototype.constructor = extraterrestre;
+    
+    extraterrestre.prototype.quecolor = function() {
+        console.log(`My fur is  ${this.colores},and i'm  sexy}`);
+    }
 
 
         let rabbit = new Animal("rabbit","green","meat");
         rabbit.talk();
         let wookiee = new extraterrestre("wookiee","brown","porgs"," Kashyyyk");
-        rabbit.tipo="dinosaur";
-        console.log(rabbit.tipo);
+        rabbit.setType("dinosaur")
+        console.log(rabbit.getType());
         rabbit.talk();
         rabbit.quecomo();
         rabbit.quecolor();
-        rabbit.color="violeta";
+        rabbit.setColor("violeta");
         rabbit.quecolor();
         wookiee.talk();
         console.log(wookiee.planeta);
-        console.log(wookiee.tipo);
+        console.log(wookiee.getType());
         wookiee.quecolor();
     
 </script>
