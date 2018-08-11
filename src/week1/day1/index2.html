@@ -1,0 +1,84 @@
+<script>
+    
+	class Animal {
+    constructor(type, age, legs) {
+        this.type = type;
+        this.age = age;
+        this.legs = legs;
+    }
+    get getType() {
+        return this.type;
+    }
+    set setType(value) {
+        this.type = value;
+    }
+    get getAge() {
+        return this.age;
+    }
+    set setAge(value) {
+        this.age = value;
+    }
+    get getLegs() {
+        return this.legs;
+    }
+    set setLegs(value) {
+        this.legs = value;
+    }
+    talk() {
+      console.log(`Hi, I'm an Animal, but also a ${this.getType}.\nI'm ${this.getAge} years old and I've ${this.getLegs} legs.`);
+    }
+    think(){
+      console.log(`Think... if i'm ${this.getAge} years old and i have ${this.getLegs} legs, each leg has ${this.getAge / this.getLegs} years.`);
+    }
+    myLegs(){
+      switch (this.getLegs) {
+        case 0:
+          console.log(`Maybe i'm a snake or a fish!`);
+          break;
+        case 1:
+          console.log(`IDK i'm a weird animal who only has one leg!`);
+          break;
+        case 2:
+        case 3:
+        case 4:
+          console.log(`Maybe i'm a mammal!`);
+          break;
+        case 8:
+          console.log(`Maybe i'm a spider!`);
+          break;
+        case 100:
+          console.log(`Maybe i'm a centipede!`)
+        default:
+          console.log(`Wow i've too many legs!`);
+          break;
+      }
+    }
+	}
+
+	class Dog extends Animal {
+		constructor(age, name) {
+			super("Dog", age, 4);
+			this.name = name;
+		}
+		get getName() {
+					return this.name;
+			}
+		set setName(value) {
+				this.name = value;
+		}
+    talk() {
+			console.log(`Hi, I'm a ${this.getType}, my name is ${this.getName} and I'm ${this.getAge} years old.`);
+	  }
+  }
+
+	let rabbit = new Animal("Rabbit", 12, 4);
+	rabbit.talk();
+	rabbit.think();
+	rabbit.myLegs();
+
+	let firulais = new Dog(5, "firulais");
+	firulais.talk();
+	firulais.think();
+	firulais.myLegs();
+
+</script>
