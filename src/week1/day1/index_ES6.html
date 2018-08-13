@@ -1,0 +1,71 @@
+<script>
+//Week1-Day1 Bonus
+//Solved with ES6 Classes notation
+
+    class Animal {
+
+        constructor(tipo) {
+            this.type = tipo;
+        }
+
+        get type() {
+            return this.type;
+        }
+        get color() {
+            return this.color;
+        }
+        get age() {
+            return this.age;
+        }
+
+        set type(tipo) {
+            this.type = tipo;
+        }
+
+        set color(col) {
+            this.color = col;
+        }
+
+        set age(edad) {
+            this.age = edad;
+        }
+
+        talk = function() {
+            console.log(`Hi! I am a ${this.type}`);
+        }
+    }
+
+    class Pet extends Animal {
+
+        constructor(tipo, nombre, amo) {
+            super(tipo);
+            this.name = nombre;
+            this.owner = amo;
+        }
+
+        get name() {
+            return this.name;
+        }
+        get owner() {
+            return this.owner;
+        }
+
+        set name(nombre) {
+            this.name = nombre;
+        }
+
+        set owner(amo) {
+            this.owner = amo;
+        }
+
+        talk = function() {
+            console.log(`Hi! I am ${this.name} and I am a ${this.type}`);
+        }
+    }
+
+    var rabbit = new Animal("Rabbit");
+    var hamster = new Pet("Hamster", "Fluffy", "Juan_Perez");
+    rabbit.talk();
+    hamster.talk();
+
+</script>

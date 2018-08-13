@@ -1,9 +1,36 @@
 <!-- Take this file and open it on a browser, then open the console
     inside developer tools -->
 <script>
-    var Animal = (function(type) {
-        this.type = type;
+    var Animal = (function(tipo) {
+        this.type = tipo;
     });
+
+    color = 'unknown';
+    age = 0;
+
+    Animal.prototype.setType = function(tipo) {
+        this.type = tipo;
+    };
+
+    Animal.prototype.getType = function() {
+        return this.type;
+    };
+
+    Animal.prototype.setColor = function(col) {
+        this.color = col;
+    };
+
+    Animal.prototype.getColor = function() {
+        return this.color;
+    };
+
+    Animal.prototype.setAge = function(edad) {
+        this.age = edad;
+    };
+//
+    Animal.prototype.getAge = function() {
+        return this.age;
+    };
 
     Animal.prototype.talk = function() {
         console.log(`Hi, I'm an Animal, but also a ${this.type}`);
@@ -11,18 +38,55 @@
 
     let rabbit = new Animal("Rabbit");
     rabbit.talk();
+    rabbit.setAge(2);
+    rabbit.setColor("White");
+    
+//New Sub-Class
+    var Pet = Object.create(Object.getPrototypeOf(Animal)), {
+        name = "unknown",
+        owner = "unknown",
+    }
+    
+    Pet.prototype.getName = function() {
+        return this.name;
+    }
+
+    Pet.prototype.setName = function(nombre) {
+        this.name = nombre;
+    }
+
+    Pet.prototype.getOwner = function() {
+        return this.owner;
+    }
+
+    Pet.prototype.setOwner = function(amo) {
+        this.owner = amo;
+    }
+
+//Override
+    Pet.prototype.talk = function() {
+        console.log(`Hi, I'm a ${this.type}, and my owner is ${this.owner}.`);
+    };
+
+    let hamster = new Pet();
+    hamster.setType("Hamster");
+    hamster.setColor("Brown/White");
+    hamster.setAge(1);
+    hamster.setName("Fluffy");
+    hamster.setOwner("Juan_Perez");
+
 </script>
 
 <!-- Now it's your turn to make some changes
-    - Refactor the previous code to use getters and settters
-    - Add at least 2 more properties
-    - Add at least 2 more methods
-    - Create a new class that inherits from Animal
-    - Override one of the methods you previously defined
+    ✓ Refactor the previous code to use getters and settters 
+    ✓ Add at least 2 more properties
+    ✓ Add at least 2 more methods
+    ✓ Create a new class that inherits from Animal
+    ✓ Override one of the methods you previously defined
 
     ****************************************************
-    ****               BONUS POINTS                 ****
-    ****      MAKE A 2nd VERSION USING ES6 CLASSES  ****
-    ****                                            ****
+    ****                BONUS POINTS                ****
+    ****    MAKE A 2nd VERSION USING ES6 CLASSES    ****
+    ****         (solved in index_ES6.html)         ****
     ****************************************************
 -->
