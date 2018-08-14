@@ -1,10 +1,72 @@
 <!-- Take this file and open it on a browser, then open the console
     inside developer tools -->
-<script>
-    (function(){
-        "use strict";
-    })()
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Page Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<h1>Crazy to do list</h1>
+	<p><button onclick="add()">Add tasks</button></p>
+	<p><button onclick="del()">Delete task</button></p>
+	<br>
+	<ol id="par" style="position: relative"></ol>	
+	<script>
+		"use strict";
+	
+		function elt(type, ...children) {
+			let node = document.createElement(type);
+			for (let child of children) {
+				if (typeof child != "string") node.appendChild(child);
+				else node.appendChild(document.createTextNode(child));
+			}
+			return node;
+		}
+	
+		function add() {
+			var result = prompt("How many tasks?", "");
+			if(result == null || result == undefined || result == 0 || !result.match(/\d+/)){
+				return alert("Data not valid");
+			}
+			let ordList = document.getElementById("par");
+			for (let i = 0; i < result; i++) {
+				let text = elt("li", elt("p",prompt("Task name:", "")));				
+				ordList.appendChild(text).setAttribute("id", i);
+			}
+		}
+	
+		function del() {
+			let aux = prompt("Delete task number:", "") - 1;
+			let rm = document.getElementById(aux);
+			console.log(rm);
+			if(rm == null){
+				return alert("Data not valid");
+			}
+			rm.remove();
+			for (let i = aux+1; i <= document.getElementById("par").getElementsByTagName("li").length; i++) {
+				document.getElementById(i).setAttribute("id", i-1);
+			}
+		}
+	
+		let crazy = document.querySelector("ol");
+		let angle = Math.PI / 2;
+		function animate(time, lastTime) {
+			if (lastTime != null) {
+				angle += (time - lastTime) * 0.001;
+			}
+			crazy.style.top = (Math.sin(angle) * 20) + "px";
+			crazy.style.left = (Math.cos(angle) * 20) + "px";
+			requestAnimationFrame(newTime => animate(newTime, time));
+		}
+		requestAnimationFrame(animate);
+	
+	</script>
+</body>
+
+</html>
 
 <!-- Now it's your turn to make some changes
     - Add at least 2 DOM elements, via code, DOH
