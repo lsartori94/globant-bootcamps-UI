@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+
+  <!-- endbuild -->
+</head>
+
+<body ng-app="listaCrudApp">
+  <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <!-- Add your site or application content here 
+  usar NGform para agregar nueva fila a la tabla (ver append child)
+  ver como guardar la tabla en un archivo .json y mandarla a algun lado XD 
+
+  puede ser que se guarde en el local storage del navegador si no es muy pesada
+  usar ng animate para la eliminacion y la creacion de una fila(ver ng leave y ng enter)
+  usar dropdown para el Toogle THEME
+  
+  
+  -->
+  <div class="header">
+    <div class="navbar navbar-default my-nav" role="navigation">
+      <div class="mycontainer container">
+        <div class="navbar-header">
+          <div>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a class="navbar-brand" href="#/">CRUD List</a>
+              </li>
+              <li>
+                <a ng-href="#/list"> List</a>
+              </li>
+              <li>
+                <a ng-href="#/about"> About</a>
+              </li>              
+            </ul>
+          </div>
+        </div>
+
+        <nav class="my-row" role="toogle theme">
+            <div class="btn-group dropleft">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Action <span class="glyphicon glyphicon-cog"></span>
+                </button>
+                <div class="dropdown-menu ">
+                  <ul style="list-style: none; padding: 5%">
+                  <li><a class="dropdown-item" href="#">Daft Punk Theme </a></li>
+                  <li><a class="dropdown-item" href="#">Globant Theme </a> </li>
+                  <li><a class="dropdown-item" href="#">Original Theme </a></li>
+                </ul>                 
+                </div>
+              </div> 
+            </span>
+          </a>
+        </nav>
+      </div>
+    </div>
+   
+  </div>
+  <div ng-view ng-class=""></div>
+  <div class="row marketing">
+    <h4>Globant Bootcamps</h4>
+    <p>
+      This is a test site for a crud list.
+    </p>
+    <button class="btn btn-success" type="button">
+
+      Like
+      <span class="glyphicon glyphicon-thumbs-up"></span>
+    </button>
+
+
+  </div>
+  <div class="footer">
+    <div class="container">
+      <p>
+        <span></span> Giorgio Tosti</p>
+    </div>
+  </div>
+
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+    !function (A, n, g, u, l, a, r) {
+      A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+        (A[l].q = A[l].q || []).push(arguments)
+      }, A[l].l = +new Date, a = n.createElement(g),
+        r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+    }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/about.js"></script>
+  <script src="scripts/controllers/list.js"></script>
+  <script src="scripts/services/listService.js"></script>
+  <script src="Scripts/angular-ui-bootstrap.js"></script> 
+
+  <!--agregar ngmaterial-->
+  <!-- endbuild -->
+</body>
+
+</html>
