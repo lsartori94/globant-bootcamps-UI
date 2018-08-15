@@ -4,7 +4,7 @@
     (function(){
         "use strict";
         var willPass = "Hi there";
-        wontPass = "nope";
+        var wontPass = "nope";
 
         console.log(`willPass = ${willPass}`);
         console.log(`wontPass = ${wontPass}`);
@@ -12,10 +12,13 @@
         let someArr = [1, 2, 3, 4];
 
         function giveMe(inx) {
-            return someArr[counter];
+            if (someArr[inx] == undefined) {
+                throw new Error(`The value of inx is a invalid index`);
+            }
+            return someArr[inx];
         }
 
-        for (let counter= 0; counter <= someArr.length; counter++) {
+        for (let counter= 0; counter < someArr.length; counter++) {
             console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
         }
 
