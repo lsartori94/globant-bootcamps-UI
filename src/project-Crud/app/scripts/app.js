@@ -17,14 +17,19 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/editProduct', {
+        templateUrl: 'views/editProduct.html',
+        controller: "EditCtrl",
+      })
       .otherwise({
         redirectTo: '/'
       });
+      $locationProvider.hashPrefix('');
   });

@@ -26,7 +26,7 @@
     "grunt-svgmin": "^2.0.0",
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^2.0.0",
-    "jasmine-core": "^3.2.0",
+    "jasmine-core": "^3.2.1",
     "jit-grunt": "^0.9.1",
     "jshint-stylish": "^1.0.0",
     "karma": "^3.0.0",
@@ -42,6 +42,6 @@
     "test": "karma start test/karma.conf.js"
   },
   "dependencies": {
-    "angular-resource": "^1.7.3"
+    "bootstrap": "^4.1.3"
   }
 }

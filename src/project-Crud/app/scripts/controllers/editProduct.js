@@ -8,12 +8,13 @@
  * Controller of the projectCrudApp
  */
 angular.module('projectCrudApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('EditCtrl', function ($scope, $http, $location) {
     $http({
       method: 'get',
       url: '../products.json'
     }).then(function (response) { 
       $scope.products = response.data;
+      $scope.id = $location.search().id;
     },function(error){
       alert(error);
     });

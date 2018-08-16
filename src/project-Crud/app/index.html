@@ -22,19 +22,33 @@
 
     <!-- Add your site or application content here -->
     <div class="header">
-        <nav class="navbar navbar-dark bg-dark justify-content-between">
-          <div class="container">
-            <a style="color: aliceblue">Project Crud Bootcamp 2018</a>
-            <form class="form-inline">
-              <button class="btn btn-success my-2 my-sm-0" type="submit">Theme</button>
-            </form>
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="#/">Project Crud Bootcamp 2018</a>
           </div>
 
-        </nav>
+          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#/">Home</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="container" ng-controller="MainCtrl">
-      <div ng-show=""></div>
+    <div class="container">
+    <div ng-view=""></div>
     </div>
 
 
@@ -51,6 +65,7 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -65,7 +80,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/editProduct.js"></script>
         <!-- endbuild -->
 </body>
 </html>
