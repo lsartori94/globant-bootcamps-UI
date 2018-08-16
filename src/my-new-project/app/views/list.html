@@ -1,13 +1,13 @@
 <div class="jumbotron">
     <nav class="my-row" role="toogle theme">
-        <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#addBeerForm">
+        <button class="btn btn-danger" type="button" ng-click="addTitle()" data-toggle="modal" data-target="#addBeerForm">
             Create
         </button>
         <div class="modal fade" id="addBeerForm" tabindex="-1" role="dialog" aria-labelledby="addBeerFormTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title" id="addBeerFormTitle" >Add New Beer</h3>
+                        <h3 class="modal-title" id="addBeerFormTitle"></h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -38,7 +38,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary btn-sm" ng-click="addBeer()" data-dismiss="modal">Create</button>
+                        <!--editar boton dependiendo de que abro-->
+                        <button class="hybrid" type="button" class="btn btn-primary btn-sm" ng-click="addBeer()" data-dismiss="modal">Create</button>
                     </div>
                 </div>
             </div>

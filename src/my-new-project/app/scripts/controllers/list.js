@@ -22,21 +22,32 @@ angular.module('listaCrudApp')
 
     ListService.refresh();
     $scope.beers = ListService.getBeers();
-    
-    $scope.name = '';
-    $scope.brand = '';
-    $scope.price = '';
-    $scope.notes = '';
+
+
+    $scope.addTitle = function () {
+      $('.modal-title').html('Add New Beer');
+      $scope.name = '';
+      $scope.brand = '';
+      $scope.price = '';
+      $scope.notes = '';
+    }
     $scope.addBeer = function () {
+
       ListService.setBeers({ name: $scope.name, brand: $scope.brand, price: $scope.price, notes: $scope.notes });
 
     };
-    $scope.delBeer= function(index){
+    $scope.delBeer = function (index) {
       ListService.deleteBeer(index);
     };
-    $scope.updBeer= function(index){
-      ListService.editBeer(index);
+    $scope.updBeer = function (index) {
+      $('.modal-title').html('Edit Beer');
+      $('.hybrid')
+      $scope.name = $scope.beers[index].name;
+      $scope.brand = $scope.beers[index].brand;
+      $scope.price = $scope.beers[index].price;
+      $scope.notes = $scope.beers[index].notes;
 
+      ListService.editBeer();
     };
   }]);
 
