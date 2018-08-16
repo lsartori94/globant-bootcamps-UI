@@ -6,16 +6,7 @@
  * @description
  * # ListCtrl
  * Controller of the listaCrudApp
- * agregar EDIT ELEMENTT  y DELETE ELEMENT
- * si puede ser con animations estaria deluxe
- *
-      }beers = [{}];
- * ya funciona el addBeer
- * 
- * FUNCIONA MAL EL LOCAL STORAGE, SI NO DECLARO EL ARRAY VACIO NO ANDA.
- * Y SI NO HAGO LA LINEA 23 NO LEE LA LISTA DESPUES DE NAVEGAR. 
- * $scope.addBeer= ()=>$scope.beers.push({name: 'Cream Stout',brand: 'Antares',price: '$100',notes: ' Dark and soft beer'});
- */
+  */
 angular.module('listaCrudApp')
 
   .controller('ListCtrl', ['$scope', 'ListService', function ($scope, ListService) {
