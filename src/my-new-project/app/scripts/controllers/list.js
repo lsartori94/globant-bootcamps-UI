@@ -10,7 +10,7 @@
 angular.module('listaCrudApp')
 
   .controller('ListCtrl', ['$scope', 'ListService', function ($scope, ListService) {
-
+    
     ListService.refresh();
     $scope.beers = ListService.getBeers();
     $scope.row= '';

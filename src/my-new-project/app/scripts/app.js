@@ -23,12 +23,6 @@ angular
   ])
   .config(function ($routeProvider, $locationProvider) {
     
-    var toogleChoice = JSON.parse(localStorage.getItem('toogleChoice'));
-    
-    
-    localStorage.setItem('toogleChoice', JSON.stringify(toogleChoice));
-    
-    
     $locationProvider.hashPrefix('');
     $routeProvider
       .when('/', {
@@ -47,5 +41,5 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       });
-          
+      
     });

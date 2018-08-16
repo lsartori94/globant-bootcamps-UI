@@ -9,14 +9,29 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
+  
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
-  
+  <link id="sitestyle" rel="stylesheet" href="styles/main.css">
+  <script>
+    function cambioStyle(sheet){
+      
+      document.getElementById('sitestyle').setAttribute('href', sheet);
+      localStorage.setItem('themeChoice', sheet);
+    }
+    </script>
+    <script>
+    if (localStorage.getItem('themeChoice') === null) {
+        themeChoice = 'styles/main.css' ;
+        localStorage.setItem('themeChoice', 'styles/main.css');
+    } else {
+        cambioStyle( localStorage.getItem('themeChoice'));
+    };
+    </script>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
-
+ 
   <!-- endbuild -->
 </head>
 
@@ -26,13 +41,7 @@
     <![endif]-->
 
   <!-- Add your site or application content here 
-  usar NGform para agregar nueva fila a la tabla (ver append child)
-  ver como guardar la tabla en un archivo .json y mandarla a algun lado XD 
 
-  puede ser que se guarde en el local storage del navegador si no es muy pesada
-  usar ng animate para la eliminacion y la creacion de una fila(ver ng leave y ng enter)
-  usar dropdown para el Toogle THEME
-  
   
   -->
   <div class="header">
@@ -57,13 +66,13 @@
         <nav class="my-row" role="toogle theme">
             <div class="btn-group dropleft">
                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Action <span class="glyphicon glyphicon-cog"></span>
+                  Theme Toggle <span class="glyphicon glyphicon-cog"></span>
                 </button>
-                <div class="dropdown-menu ">
+                <div class="dropdown-menu" ng-controller="ListCtrl">
                   <ul style="list-style: none; padding: 5%">
-                  <li><a class="dropdown-item" href="#">Daft Punk Theme </a></li>
-                  <li><a class="dropdown-item" href="#">Globant Theme </a> </li>
-                  <li><a class="dropdown-item" href="#">Original Theme </a></li>
+                  <li><button onclick="cambioStyle('styles/dpstyle.css')" class="dropdown-item" >Daft Punk Theme </button></li>
+                  <li><button onclick="cambioStyle('styles/gbstyle.css')" class="dropdown-item">Globant Theme </button> </li>
+                  <li><button onclick="cambioStyle('styles/main.css')" class="dropdown-item">Original Theme </button></li>
                 </ul>                 
                 </div>
               </div> 
@@ -126,6 +135,7 @@
   <!-- endbuild -->
 
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/main.js"></script>
   <script src="scripts/controllers/about.js"></script>

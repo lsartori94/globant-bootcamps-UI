@@ -3,12 +3,13 @@ angular.module('listaCrudApp')
 
     .service('ListService', [function () {
         var beers;
-        var save = function () { localStorage.setItem('beerList', JSON.stringify(beers)); };
-        //poner en una function lo de abajo
+        
+        this.save = function () { localStorage.setItem('beerList', JSON.stringify(beers)); };
+
         this.refresh = function () {
             if (JSON.parse(localStorage.getItem('beerList')) === null) {
                 beers = [];
-                save();
+                this.save();
             } else {
                 beers = JSON.parse(localStorage.getItem('beerList'));
             }
@@ -19,20 +20,24 @@ angular.module('listaCrudApp')
 
         this.setBeers = function (beer) {
             beers.push(beer);
-            save();
+            this.save();
         };
         //tiene que recibir un json y devolver un json sin el nuevo
         this.deleteBeer = function (index) {
             beers.splice(index, 1);
-            save();
+            this.save();
         };
-        this.editBeer = function (index,beerdata) {
+        this.editBeer = function (index, beerdata) {
             console.log(beerdata);
             console.log(index);
-            beers[index].name=beerdata[0];
-            beers[index].brand=beerdata[1];
-            beers[index].price=beerdata[2];
-            beers[index].notes=beerdata[3];
-            save();
+            beers[index].name = beerdata[0];
+            beers[index].brand = beerdata[1];
+            beers[index].price = beerdata[2];
+            beers[index].notes = beerdata[3];
+            this.save();
         };
+        this.toggleTheme= function(sheet){
+            console.log('works');
+            angular.element(document.querySelector('#sitestyle')).setAttribute('href',sheet);
+           };
     }]);
