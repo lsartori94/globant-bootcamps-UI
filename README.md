@@ -568,6 +568,9 @@ Use [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/loca
 that changes the color scheme (YES, A THEME TOGGLE).
 
 
+__CODE REVIEW TIME!!!__
+
+Part of our everyday work is to read, understand and, sometimes, make observations on our teammates code. That's why we thought this is a good opportunity to start doing that! There will be 2 code reviewers encharged of this task, and we will announce them in class.
 
 ## Day 9 and 10: TypeScript 101
 So, here we are. This is the first step into a whole new world. It doesn't matter if it's [Angular](https://angular.io/), [React](https://reactjs.org/), [Vue](https://vuejs.org/) or any `Js` framework. The latest generation of those tools makes the whole development process a breeze.
