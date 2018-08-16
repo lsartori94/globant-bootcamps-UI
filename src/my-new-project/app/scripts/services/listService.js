@@ -26,8 +26,13 @@ angular.module('listaCrudApp')
             beers.splice(index, 1);
             save();
         };
-        this.editBeer = function (index) {
-            
+        this.editBeer = function (index,beerdata) {
+            console.log(beerdata);
+            console.log(index);
+            beers[index].name=beerdata[0];
+            beers[index].brand=beerdata[1];
+            beers[index].price=beerdata[2];
+            beers[index].notes=beerdata[3];
             save();
         };
     }]);
