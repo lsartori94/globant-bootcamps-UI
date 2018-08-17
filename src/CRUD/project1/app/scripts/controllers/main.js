@@ -7,9 +7,6 @@
  * Controller of the App
  */
 
-
-
-
 angular.module('App')
   .controller('MainCtrl', function () {
     this.awesomeThings = [
@@ -18,30 +15,33 @@ angular.module('App')
       'Karma'
     ];
   });
-
-
-
-    
- App.controller ('mainController2', function ($scope, $localStorage,
+ 
+ App.controller ('CRUDController', function ($scope, $localStorage,
   $sessionStorage){
-    
-  //Para guardar el theme en el localStorage
-    $scope.$storage = $localStorage.$default({
-      theme: 1
-  });
 
-    //Chequea que tema tenía guardado y lo asigna
+  //Hard Code para mostrar el primer elemento de la lista 
+
+  $scope.submitted = false;
+  let game1 = new game ("Nomdedeu, Patricio","Nomdedeu, Luis","1-0","1. e4 d5 2. exd5 Nf6 3. Nf3 Nxd5 4. d4 Bg4...");
+  $scope.games=[game1];
+
+ //Para guardar el theme en el localStorage
+  $scope.$storage = $localStorage.$default({
+    theme: 1
+});
+
+  //Funciones
+
+  //Chequea que tema tenía guardado y lo asigna
+
   $scope.checkTheme = function () {
-   
     switch ($localStorage.theme) {
       case 1:
         $scope.theme1();
           break;
       case 2:
-        $scope.theme2();
-        
-      }
-      
+        $scope.theme2();     
+      }     
 };
 
 //Cambia de theme. Lo hice con switch por si quería agregar más después
@@ -55,11 +55,10 @@ angular.module('App')
       case 2:{
       $scope.$storage.theme=1
       $scope.theme1();
-    }
-        
-      }
-    
+    }      
+      }  
 };
+
 //Cambia de theme
 $scope.theme2 = function(){
   var elem = angular.element(document.querySelector('#bg'));
@@ -69,6 +68,7 @@ $scope.theme2 = function(){
   var elem3 = angular.element(document.querySelector('.quoteAutor'));
       angular.element(elem3).css( 'color', '#212529');
 }
+
   //Cambia de theme  
 $scope.theme1 = function(){
   var elem = angular.element(document.querySelector('#bg'));
@@ -77,17 +77,9 @@ $scope.theme1 = function(){
   var elem2 = angular.element(document.querySelector('#tittleHeader'));
       angular.element(elem2).css( 'color', '#FACC91');
   var elem3 = angular.element(document.querySelector('.quoteAutor'));
-      angular.element(elem3).css( 'color', '#FACC91');
-      
+      angular.element(elem3).css( 'color', '#FACC91');    
 }
     
-  //preparo el primer elemento de la lista 
-  $scope.submitted = false;
-  let game1 = new game ("Nomdedeu, Patricio","Nomdedeu, Luis","1-0","1. e4 d5 2. exd5 Nf6 3. Nf3 Nxd5 4. d4 Bg4...");
-  $scope.games=[game1];
-   
-
- 
 
 //Funciones para el CRUD
   $scope.addGame = function() {
@@ -102,11 +94,8 @@ $scope.theme1 = function(){
  
   }
   
-  
-  
   $scope.closeAddForm = function (){
-    $scope.newGame = {};
-    $scope.addForm.$setPristine();
+    $scope.resetAddForm();
     $scope.submitted = false;
     
    }
@@ -116,8 +105,6 @@ $scope.theme1 = function(){
     
    }
  
-
-
   $scope.deleteGame = function (index){
    $scope.games.splice(index, 1)
   }
@@ -136,8 +123,5 @@ $scope.theme1 = function(){
     $scope.games[ $scope.selectedGame.index] = $scope.selectedGame;
 
    }
-
-
-
 
   });

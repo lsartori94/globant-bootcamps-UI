@@ -28,47 +28,58 @@ body, html {
   }
   /* So the window doesn't shrink after opening modal */
   body {
-  padding-right: 0px !important
+    padding-right: 0px !important
   }
 
   .modal-open {
-  overflow-y: auto;
+    overflow-y: auto;
   }
   
   #bg {
-  /* The image used */
-  background-image: url("images/theme1.jpg");
-  background-position: center;
-  /* Full height */
-  height: 100%; 
-  /* Center and scale the image nicely */
-  background-repeat: no-repeat;
-  background-size: cover;
+    /* The image used */
+    background-image: url("images/theme1.jpg");
+    background-position: center;
+    /* Full height */
+    height: 100%; 
+    /* Center and scale the image nicely */
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   #bg2 {
-  /* The image used */
-  background-image: url("/images/caro3.jpg");
-  /* Full height */
-  height: 100%; 
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    /* The image used */
+    background-image: url("/images/caro3.jpg");
+    /* Full height */
+    height: 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
+
+  .modalFondo {
+    /* The image used */
+    background-image: url("/images/modalFondo.jpg");
+    /* Full height */
+    height: 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   }
   
   td {
-  padding: 15px  
+    padding: 15px  
   }
   
   td.white {
-  /* background-color: rgb(249, 204, 149);  */ 
-  color:  rgba(83, 63, 38, 0.699);  
+    /* background-color: rgb(249, 204, 149);  */ 
+    color:  rgba(83, 63, 38, 0.699);  
   }
 
   td.black {
-  /* background-color: rgba(51, 28, 6, 0.952); */ 
-  color:rgb(163, 107, 55);  
+    /* background-color: rgba(51, 28, 6, 0.952); */ 
+    color:rgb(163, 107, 55);  
   }
 
   img.whitePawn{
