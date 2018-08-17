@@ -97,7 +97,19 @@ $scope.theme1 = function(){
                          $scope.newGame.moves);
 
    $scope.games.push(newGame);
+ $scope.resetAddForm();
+ 
   }
+   //$('#addGameModal').modal(hide);
+  
+  
+  
+  $scope.resetAddForm = function (){
+    $scope.newGame = {};
+    $scope.addForm.$setPristine();
+   }
+ 
+
 
   $scope.deleteGame = function (index){
    $scope.games.splice(index, 1)
@@ -116,7 +128,8 @@ $scope.theme1 = function(){
    $scope.updateGame = function (index){
     $scope.games[ $scope.selectedGame.index] = $scope.selectedGame
    }
-  
-  
+
+
+
 
   });

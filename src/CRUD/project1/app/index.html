@@ -157,11 +157,11 @@
 <div id="bg" ng-controller="mainController2" ng-init="checkTheme()">
       
         
-<div class="margin25">
-          <button type="button" class="btn btn-light" ng-click="toggleTheme()">   <h5> Change Theme </h5></button>
-        </div>
+  <div class="margin25">
+            <button type="button" class="btn btn-light" ng-click="toggleTheme()">   <h5> Change Theme </h5></button>
+  </div>
        
-          <div class="container" style="font-size:2vw">
+          <div class="container">
               <div class="row padding25">
                 <div class="col text-center" >
                     <h1 class="display-4" id="tittleHeader" >CHESS GAMES</h1>
@@ -173,8 +173,8 @@
                     </blockquote>
 
                      <!-- Button trigger modal -->
-            <button type="button" class="btn-lg btn-info" data-toggle="modal" data-target="#exampleModal">
-                Add Game </button>
+            <button type="button" class="btn-lg btn-info" data-toggle="modal" data-target="#addGameModal">
+                Add Games </button>
                 </div>
 
 
@@ -192,6 +192,9 @@
 <!-- Todo lo que está adentro de la segunda imagen -->
 
       <div id="bg2" class="please-scroll" ng-controller="mainController2">
+    
+
+
 
 <br>
 <div class="container">
@@ -206,11 +209,10 @@
               <td class="text-center"> <h3>Moves:</h3> {{ game.moves }} </td>
               <td>
                 
-                <button type="button" class="btn btn-primary" ng-click="selectGame(games.indexOf(game))" data-toggle="modal" data-target="#editModal">
-                  Edit
-                </button>
+              <button type="button" class="btn btn-primary" ng-click="selectGame(games.indexOf(game))" data-toggle="modal" data-target="#editModal"> Edit </button>
+                 
                 <button type="button" class="btn btn-danger"   ng-click="selectGame(games.indexOf(game))" data-toggle="modal" data-target="#deleteModal">Delete</button>
-
+              </td>
 
 
 
@@ -227,6 +229,8 @@
                         </button>
                       </div>
                       <div class="modal-body">
+
+                        
                         <form action="">
                           <p>White:
                             <input type="text" ng-model="selectedGame.white"> </input>
@@ -255,7 +259,7 @@
                   </div>
                 </div>  
 
-              </td>
+              
               
                 
               
@@ -267,47 +271,43 @@
 
 
           <!-- Modal para agregar Game -->
-<div class="modal fade text-center" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade text-center" id="addGameModal" tabindex="-1" role="dialog" aria-labelledby="addGameModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add a Game</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <h5 class="modal-title" id="addGameModal">Add as many games as you want!</h5>
+          <button type="button" class="close"  ng-click="resetAddForm()" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-            <form id="addForm">
-                <p>White:
-                  <input type="text" ng-model="newGame.white"> </input>
-                </p>
-                <p> Black:
-                  <input type="text" ng-model="newGame.black"> </input>
-                </p>
-                <p> Result:
-                  <select name="Result" id="Result" ng-model="newGame.result">
+
+
+            <form id="addForm" name="addForm" > 
+                <p> <label for="white">White:  </label> <input name="white" type="text" ng-model="newGame.white" required>  </p>
+                <p> <label for="black">Black:  </label> <input name="black" type="text" ng-model="newGame.black" required></p>
+                <p> <label for="result">Result:  </label>
+                <select name="result" ng-model="newGame.result" required>
                     <option value="1-0">1-0</option>
                     <option value="1/2">1/2</option>
                     <option value="0-1">0-1</option>
-                  </select>
+                  </select></p>
+                  <p> <label for="moves">Moves:  </label>
+                 <textarea name="moves" ng-model="newGame.moves" cols="30" rows="5" required></textarea></p>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"  ng-click="resetAddForm()" >Close</button>
+                    <button  ng-disabled="addForm.$invalid" type="submit"  ng-click="addGame()" class="btn btn-primary" data-dismiss="modal">Add Game</button>
                   
-                </p>
-                <p>Moves:
-                  <textarea name="moves" id="moves" cols="22" rows="5" ng-model="newGame.moves"> </textarea></p>
-    
-              
-             
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" onclick="resetForm('addForm')" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="addGame(add)"data-dismiss="modal" onclick="resetForm('addForm')" >Add Game</button>
-        
+                  </div>
+               
+              </form>      
         </div>
       </div>
     </div>
   </div>
 
-</form>
+
 
 
   
