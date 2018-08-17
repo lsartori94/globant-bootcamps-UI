@@ -1,0 +1,94 @@
+<div class="jumbotron">
+    <nav class="my-row" role="toogle theme">
+        <button class="btn btn-danger" type="button" ng-click="addTitle()" data-toggle="modal" data-target="#addBeerForm">
+            Create
+        </button>
+        <!--add beer modal-->
+        <div class="modal fade" id="addBeerForm" tabindex="-1" role="dialog" aria-labelledby="addBeerFormTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="addBeerFormTitle"></h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label class="my-label" for="beerName">Name</label>
+                                <input type="text" class="form-control" id="beerNameInput" placeholder="Beer Name" ng-model="name">
+
+                            </div>
+                            <div class="form-group">
+                                <label class="my-label" for="beerBrand">Brand</label>
+                                <input type="text" class="form-control" id="beerBrandInput" placeholder="Brand Name" ng-model="brand">
+                            </div>
+                            <div class="form-group">
+                                <label class="my-label" for="beerPrice">Price</label>
+                                <input type="text" class="form-control" id="beerPriceInput" placeholder="Price" ng-model="price">
+
+                            </div>
+                            <div class="form-group">
+                                <label class="my-label" for="beerNotes">Notes</label>
+                                <input type="text" class="form-control" id="beerNotesInput" placeholder="Notes" ng-model="notes">
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <!--editar boton dependiendo de que abro-->
+                        <button type="button" style="margin: 5px" class="btn btn-primary hybrid" ng-click="hybridClick()" data-dismiss="modal"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--"are you sure" modal-->
+        <div class="modal" id= "delete-confirmation" tabindex="-1" role="dialog" >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h2 class="modal-title">Are you sure ?</h2>
+                </div>
+                
+                <div class="modal-footer">
+                   <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="delBeer($index)">Yes</button>
+                  <button type="button" style="margin: 5px"class="btn btn-secundary" data-dismiss="modal">No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </nav>
+
+    <table class="items">
+        <thead>
+            <h1>THE DRUNKEN LIST</h1>
+        </thead>
+        <tr class="item" ng-repeat="beer in beers">
+            <td class="beer-container">
+                <h3>{{beer.name}}</h3>
+                <h4>{{beer.brand}}</h4>
+                <h5>{{beer.price}}</h5>
+                <h5>{{beer.notes}}</h5>
+            </td>
+            <td class="btnlist">
+                <button id="edit-beer" class="btn my-btn btn-warning" ng-click="updBeer($index)" data-toggle="modal" data-target="#addBeerForm" alt="Edit Button" >Edit
+                    <span class="glyphicon glyphicon-edit"></span>
+                </button>
+            </td>
+            <td class="btnlist">
+                <button id="delete-beer" class="btn my-btn btn-danger" data-toggle="modal" data-target="#delete-confirmation"  alt="Delete Button" >Delete
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+<!---->
+            </td>
+        </tr>
+    </table>
+
+
+
+</div>

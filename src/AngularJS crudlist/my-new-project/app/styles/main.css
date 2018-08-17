@@ -1,0 +1,156 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+  
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 0px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+.container{
+  
+  margin: 10px;
+  
+}
+.mycontainer{
+  margin: 0%;
+  width: 100%;
+  padding-top: 15px;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 10px 15px;
+  margin: 5px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 0px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+.beer-container{
+ width: 100%;
+ 
+}
+.items {
+  border-left-width: 0px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+	flex-wrap: wrap;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  background-color:   rgba(72, 137, 235, 0.377);
+  
+  
+}
+.items .item{
+  flex: 1 0 80px;
+  color: #171e42;
+  border-bottom-color: #171e42;
+  margin-bottom: 2px;
+  text-align: justify;
+  flex-direction: row;
+  border-bottom: 3px, solid, #171e42;
+}
+
+.item .btnlist{
+
+}
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 0px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0px;
+  }
+}
+.my-row{
+  list-style: none;
+  margin: 0; 
+  display: flex;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  justify-content: flex-end;
+  margin-right: 50px;
+  
+}
+.my-nav{
+  margin-bottom: 1px;
+}
+.dropdown-menu{
+  
+  width:70px;
+  background-color: #e5e5e5;
+}
+.my-label{
+  display: flex;
+  justify-content: flex-start;
+}
+input[type=text] {
+  border: none;
+  border-bottom: 2px solid lightslategray;
+}
+input[type=text]:focus {
+  border: 1px solid #555;
+}

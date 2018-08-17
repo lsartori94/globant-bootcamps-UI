@@ -1,0 +1,170 @@
+<<<<<<< HEAD
+@import "compass/css3";
+*{
+    font-family:Arial, Helvetica, sans-serif; 
+    font-weight: 600;
+    padding: 0%;
+    margin: 0%;
+}
+
+.container{
+    list-style: none;
+    margin: 0; 
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    background-color: blue;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 20px;
+    
+    
+
+    
+}
+.container a { 
+    
+    text-align: center; 
+    padding: 20px;
+    border-right: 5px solid blue;
+    font-size: 15px;
+}
+   
+.item{
+    
+    background-color: rgb(1, 111, 255);
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+
+.header{
+    color: aliceblue;
+    font-size: 46px;
+    height: 200px;
+    background-color: magenta;
+    background-image: url(http://www.themesltd.com/headers2/half_daft_punk.png);
+
+}
+.divmid{
+    background-color: magenta;
+}
+.footer{
+    font-size: 10px;
+    background-color: magenta;
+}
+.content{
+    font-size: 14px;
+    background-color: magenta;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 300px;
+    
+    
+}
+.itemA{
+
+    background-color: magenta;
+}
+.navigation{
+    font-size: 12px;
+    background-color: blue;
+    list-style: none;
+    margin: 0; 
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.sidebar{
+    font-size: 10px;
+     background-color: magenta;
+     width: 20%;
+    height: 50%;
+=======
+@import "compass/css3";
+*{
+    font-family:Arial, Helvetica, sans-serif; 
+    font-weight: 600;
+    padding: 0%;
+    margin: 0%;
+}
+
+.container{
+    list-style: none;
+    margin: 0; 
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    background-color: blue;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 20px;
+    
+    
+
+    
+}
+.container a { 
+    
+    text-align: center; 
+    padding: 20px;
+    border-right: 5px solid blue;
+    font-size: 15px;
+}
+   
+.item{
+    
+    background-color: rgb(1, 111, 255);
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+
+.header{
+    color: aliceblue;
+    font-size: 46px;
+    height: 200px;
+    background-color: magenta;
+    background-image: url(http://www.themesltd.com/headers2/half_daft_punk.png);
+
+}
+.divmid{
+    background-color: magenta;
+}
+.footer{
+    font-size: 10px;
+    background-color: magenta;
+}
+.content{
+    font-size: 14px;
+    background-color: magenta;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 300px;
+    
+    
+}
+.itemA{
+
+    background-color: magenta;
+}
+.navigation{
+    font-size: 12px;
+    background-color: blue;
+    list-style: none;
+    margin: 0; 
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.sidebar{
+    font-size: 10px;
+     background-color: magenta;
+     width: 20%;
+    height: 50%;
+>>>>>>> 543d1a6e0c3298b1b57299ac3aedc35e8533ecef
+}
