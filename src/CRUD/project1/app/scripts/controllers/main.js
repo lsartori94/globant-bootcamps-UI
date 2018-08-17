@@ -81,32 +81,39 @@ $scope.theme1 = function(){
       
 }
     
-  //preparo el primer elemento de la lista  
+  //preparo el primer elemento de la lista 
+  $scope.submitted = false;
   let game1 = new game ("Nomdedeu, Patricio","Nomdedeu, Luis","1-0","1. e4 d5 2. exd5 Nf6 3. Nf3 Nxd5 4. d4 Bg4...");
   $scope.games=[game1];
    
 
-
+ 
 
 //Funciones para el CRUD
   $scope.addGame = function() {
-    //debugger;
   let newGame = new game ($scope.newGame.white,
                           $scope.newGame.black,
                          $scope.newGame.result, 
                          $scope.newGame.moves);
 
    $scope.games.push(newGame);
- $scope.resetAddForm();
+   $scope.submitted = true;
+   $scope.resetAddForm();
  
   }
-   //$('#addGameModal').modal(hide);
   
   
   
+  $scope.closeAddForm = function (){
+    $scope.newGame = {};
+    $scope.addForm.$setPristine();
+    $scope.submitted = false;
+    
+   }
   $scope.resetAddForm = function (){
     $scope.newGame = {};
     $scope.addForm.$setPristine();
+    
    }
  
 
@@ -126,7 +133,8 @@ $scope.theme1 = function(){
    }
 
    $scope.updateGame = function (index){
-    $scope.games[ $scope.selectedGame.index] = $scope.selectedGame
+    $scope.games[ $scope.selectedGame.index] = $scope.selectedGame;
+
    }
 
 

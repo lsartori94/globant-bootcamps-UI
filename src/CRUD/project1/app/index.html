@@ -25,127 +25,14 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
-
-  <!-- endbuild -->
-
-<!-- Stilos para ir probando (falta separar en un .css aparte, después lo hago) -->
+  <!-- letra personalizada. Desde el css no me funcionaba -->
   <style>
-  
-  body, html {
-  height: 100%;
-  margin: 0;
-  font-family: 'Chelsea Market';
-  font-size: 1em;
-  }
-  .centrado {
-    text-align: center;
-    align: center
-  }
-  .gamesTable {
-    border-spacing: 10px;
-  }
-  
-  
-  .please-scroll {
-  
-    overflow-y: scroll;
-  }
-  
-  .modal-backdrop {
-    z-index: -1;
-  }
-  .padding25 {
-    padding-top: 7%;
-    padding-bottom: 12%;
-    padding-left: 100px;
-  
-  }
-  /* So the window doesn't shrink after opening modal */
-  body {
-  padding-right: 0px !important
-  }
-  
-  .modal-open {
-  overflow-y: auto;
-  }
-  
-  
-  
-  #bg {
-  /* The image used */
-  background-image: url("images/theme1.jpg");
-  background-position: center;
-  
-  
-  
-  /* Full height */
-  height: 100%; 
-  
-  /* Center and scale the image nicely */
-  
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
-  #bg2 {
-  /* The image used */
-  background-color:white;
-  background-image: url("images/caro3.jpg");
-  
-  
-  
-  /* Full height */
-  height: 100%; 
-  
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
-  
-  td {
-  padding: 15px  
-  }
-  
-  td.white {
-  /* background-color: rgb(249, 204, 149);  */ 
-  color:  rgba(83, 63, 38, 0.699);  
-  
-  
-  }
-  td.black {
-  /* background-color: rgba(51, 28, 6, 0.952); */ 
-  color:rgb(163, 107, 55);  
-  
-  }
-  img.whitePawn
-  {height: 75px;
-  
-  }
-  img.blackPawn
-  {height: 75px;
-  align:left
-  }
-  .quoteAutor
-  {color: #212529;
-  }
-  table {
-  table-layout: fixed;
-  width: 100%;
-  }
-  
-  table td {
-  word-wrap: normal;         
-  overflow-wrap: normal;     
-  }
-  .margin25 {
-  padding: 2%    
-  }
-  blockquote {
-  color: white
-  }
-  
-</style>
- 
+    body{
+     font-family: 'Chelsea Market';
+     }
+   </style>
+    <!-- endbuild -->
+
 </head>
 
 
@@ -153,7 +40,6 @@
 <body ng-app="App">
 
   <!-- Todo lo que está adentro de la primer imagen -->
-
 <div id="bg" ng-controller="mainController2" ng-init="checkTheme()">
       
         
@@ -233,7 +119,7 @@
                         
                         <form action="">
                           <p>White:
-                            <input type="text" ng-model="selectedGame.white"> </input>
+                            <input type="text" ng-model="selectedGame.white" > </input>
                           </p>
                           <p> Black:
                             <input type="text" ng-model="selectedGame.black"> </input>
@@ -276,7 +162,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="addGameModal">Add as many games as you want!</h5>
-          <button type="button" class="close"  ng-click="resetAddForm()" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close"  ng-click="closeAddForm()" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -296,10 +182,15 @@
                  <textarea name="moves" ng-model="newGame.moves" cols="30" rows="5" required></textarea></p>
                 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"  ng-click="resetAddForm()" >Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"  ng-click="closeAddForm()" >Close</button>
                     <button  ng-disabled="addForm.$invalid" type="submit"  ng-click="addGame()" class="btn btn-primary" data-dismiss="modal">Add Game</button>
-                  
                   </div>
+              
+                  <p>  <div ng-if="!addForm.$dirty && submitted" class="valid">You added a game correctly</div></p>
+                  <p>  <div ng-if="addForm.$dirty && addForm.$invalid"  class="invalid">All inputs have to be filled</div></p>
+                  
+                  
+
                
               </form>      
         </div>
@@ -366,6 +257,7 @@
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
   </script>
+
 
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->

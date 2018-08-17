@@ -1,5 +1,4 @@
 
- 
 body, html {
   height: 100%;
   margin: 0;
@@ -14,17 +13,15 @@ body, html {
     border-spacing: 10px;
   }
   
-  
-  #please-scroll {
-  
+  .please-scroll {
     overflow-y: scroll;
   }
-  
+
   .modal-backdrop {
     z-index: -1;
   }
   .padding25 {
-    padding-top: 12%;
+    padding-top: 7%;
     padding-bottom: 12%;
     padding-left: 100px;
   
@@ -33,38 +30,27 @@ body, html {
   body {
   padding-right: 0px !important
   }
-  
+
   .modal-open {
   overflow-y: auto;
   }
-  
-  
   
   #bg {
   /* The image used */
   background-image: url("images/theme1.jpg");
   background-position: center;
-  
-  
-  
   /* Full height */
   height: 100%; 
-  
   /* Center and scale the image nicely */
-  
   background-repeat: no-repeat;
   background-size: cover;
   }
+
   #bg2 {
   /* The image used */
-  background-color:white;
-  background-image: url("images/caro3.jpg");
-  
-  
-  
+  background-image: url("/images/caro3.jpg");
   /* Full height */
   height: 100%; 
-  
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -78,40 +64,48 @@ body, html {
   td.white {
   /* background-color: rgb(249, 204, 149);  */ 
   color:  rgba(83, 63, 38, 0.699);  
-  
-  
   }
+
   td.black {
   /* background-color: rgba(51, 28, 6, 0.952); */ 
   color:rgb(163, 107, 55);  
-  
   }
-  img.whitePawn
-  {height: 75px;
-  
+
+  img.whitePawn{
+    height: 75px
   }
-  img.blackPawn
-  {height: 75px;
-  align:left
+
+  img.blackPawn{
+     height: 75px;
+     align:left
   }
-  .quoteAutor
-  {color: #212529;
+
+  .quoteAutor{
+    color: #212529;
   }
+
   table {
-  table-layout: fixed;
-  width: 100%;
+    table-layout: fixed;
+    width: 100%;
   }
-  
+
   table td {
-  word-wrap: normal;         
-  overflow-wrap: normal;     
+    word-wrap: normal;         
+    overflow-wrap: normal;     
   }
+
   .margin25 {
-  padding: 2%    
+    padding: 2%    
   }
+
   blockquote {
-  color: white
+    color: white
+  }
+
+  .invalid {
+    color: red
   }
   
-  
-  
+  .valid {
+    color: green   
+  }
