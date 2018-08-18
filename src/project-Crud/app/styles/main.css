@@ -80,4 +80,10 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+  .navLigth{
+    background-color: whitesmoke;
+  }
+  .navDark{
+    background-color: black;
+  }
 }
