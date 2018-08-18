@@ -1,0 +1,13 @@
+<p>This is the about view.</p>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <div ng-app="appNameApp" ng-controller="listCtrl">
+            <ul>
+                <li ng-repeat="x in products">
+                    {{x}}
+                    <span ng-click="removeItem($index)">&times;</span>
+                </li>
+            </ul>
+            <input ng-model="addMe">
+            <button ng-click="addItem()">Add</button>
+            <p>{{errortext}}</p>
+        </div>

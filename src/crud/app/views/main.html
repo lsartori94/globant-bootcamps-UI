@@ -1,0 +1,143 @@
+<div class="container"  >
+<div class="header" >
+<h1  style= "background-color: rgb(69, 156, 156)">Mis Series 
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal" style="float: right;">
+      Create
+    </button>
+</h1>
+
+  <p>
+      <br/>
+    </p>
+</div>
+<div  ng-repeat="serie in Series">
+         <ul class="list-group"  style="color: #0056b2;">
+        <li > <b>Name:{{serie.name}}</b></li>
+
+        <li > Episodes: {{serie.episodes}}
+          
+          <button type="button" class="btn btn-primary" ng-click="saveIndex($index)"  data-toggle="modal" data-target="#deleteModal" style="float: right;">
+              Delete
+             </button>
+          <button type="button" class="btn btn-primary" ng-click="saveIndex($index)"  data-toggle="modal" data-target="#updateModal" style="float: right;">
+             Update
+            </button>
+        </li>
+        <li > Genre: {{serie.genre}}</li>
+      	
+  <hr style="color: #0056b2;" />
+
+        </ul>
+   
+
+
+      </div>
+      <div>
+      <p>
+        <br/>
+      </p>
+      
+      </div>
+      
+  
+
+
+
+      </div>
+
+     
+
+     <!--Modal Create-->
+
+      <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style= "background-color: rgb(69, 156, 156)">
+              <h1 class="modal-title" id="createModalLabel">Create</h1>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <table>
+                  <td>
+                <label for="name">Name of the Serie</label> 
+              <input id="name" ng-model="addMe" type="text" required></td>
+             <td>
+                <label for="episodes">Number of Episodes</label>  
+              <input  id="episodes"ng-model="addepi" type="number" min="0" ></td>
+             <td> 
+                <label for="genre">Genre of the Serie</label> 
+              <input  ng-model="addgen" type="text" required ></td>
+             </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addItem()"  >Create</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</div>
+
+<!--Modal Update-->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style= "background-color: rgb(69, 156, 156)">
+          <h1 class="modal-title" id="updateModalLabel">Update</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <table>
+           <td>
+            <label for="name" >Update Name </label> 
+          <input id="name" ng-model="addMe2" type="text" >
+        </td>
+        <td>
+            <label for="episodes">Update Episodes</label> 
+
+          <input  id="episodes"ng-model="addepi2" type="number" min="0" >
+        </td>
+        <td>
+            <label for="genre">Update Genre </label> 
+          <input  ng-model="addgen2" type="text"></td>
+        </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal"  ng-click="updateItem()"  >Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+    <!--Modal Delete-->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style= "background-color: rgb(69, 156, 156)">
+          <h1 class="modal-title" 	 id="deleteModalLabel">Delete</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <h1> Are you sure you want to delete the serie?</h1>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="removeItem()"  >Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
