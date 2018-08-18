@@ -1,4 +1,4 @@
-  <div class="container" ng-controller="MainCtrl">
+  <div class="container">
     <table class="table">
         <thead>
           <tr>
@@ -12,6 +12,7 @@
         <tbody>
           <tr ng-repeat="data in products">
             <td>
+              <!--ng-click-->
               <a ng-href='#/editProduct?id={{$index}}' class="btn btn-primary" type="submit" role="button" aria-pressed="true">Edit</a>
               &nbsp;&nbsp;
               &nbsp;<button class="btn btn-danger" type="submit">Delete</button></td>

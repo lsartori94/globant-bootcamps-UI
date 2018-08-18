@@ -32,4 +32,5 @@ angular
         redirectTo: '/'
       });
       $locationProvider.hashPrefix('');
-  });
+  })
+  ;

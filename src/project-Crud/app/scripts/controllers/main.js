@@ -8,18 +8,8 @@
  * Controller of the projectCrudApp
  */
 angular.module('projectCrudApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $http({
-      method: 'get',
-      url: '../products.json'
-    }).then(function (response) { 
-      $scope.products = response.data;
-    },function(error){
-      alert(error);
+  .controller('MainCtrl', function ($scope, productsService) {
+    productsService.getProducts().then(function(response){
+      $scope.products = response;
     });
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
   });
