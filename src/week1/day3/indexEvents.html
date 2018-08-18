@@ -1,11 +1,110 @@
 <!-- Take this file and open it on a browser, then open the console
 inside developer tools -->
+<!DOCTYPE html>
+<html onmousemove="showCoords(event)" onmouseout="clearCoor()">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Page Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+  .container {
+    text-align: center;
+  }
+  #demo {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    font-size: 18px;
+  }
+  #warning{
+    color: red;
+  }
+  button{
+    cursor: pointer;
+  }
+</style>
+<body>
+  <div class="container">
+    <h1>The ultimate experience!</h1>
+    <p id="demo"></p>
+    <p>Hold the "R" key to be part of the ultimate experience!</p>
+    <p id="warning">Epilepsy warning!</p>
+    <img hidden src="img/bald-guy.gif" alt="Ultimate experience!" id="ue">
+    <br>
+    <button id="magic">Add some magic!</button>
+    <button id="nothing">Nothing</button>
+    <br>
+    <br> 
+    <img hidden src="img/magic.gif" alt="Magic!" id="mg">
+  </div>
+  
 <script>
-    (function(){
-        "use strict";
-    })()
-</script>
+  "use strict";
 
+  //pointer's position
+	function showCoords(event) {
+		var x = event.clientX;
+		var y = event.clientY;
+		var coor = "Pointer's position ||X coords: " + x + ", Y coords: " + y + "||";
+		document.getElementById("demo").innerHTML = coor;
+	}
+
+  //clear pointer's position
+	function clearCoor() {
+		document.getElementById("demo").innerHTML = "";
+	}
+
+	//button clicked
+  let button = document.getElementById("magic");
+  button.addEventListener("click", () => {
+    console.log("Button clicked.");
+    if (button.firstChild.data == "Add some magic!") 
+    {
+      button.firstChild.data = "Too much!";
+      document.getElementById("mg").removeAttribute("hidden", "");
+    }
+    else 
+    {
+      button.firstChild.data = "Add some magic!";
+      document.getElementById("mg").setAttribute("hidden", "");
+    }
+  });
+
+  //random background
+  function random_bg_color() {
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    document.body.style.background = bgColor;
+  }
+
+	//change background
+	window.addEventListener("keydown", event => {
+    if (event.key == "r") {
+     random_bg_color();
+     document.getElementById("ue").removeAttribute("hidden", "");
+    }
+  });
+
+  //reset background
+  window.addEventListener("keyup", event => {
+    if (event.key == "r") {
+      document.body.style.background = "";
+      document.getElementById("ue").setAttribute("hidden", "");
+    }
+  });
+
+  //nothing at all
+  let link = document.getElementById("nothing");
+  link.addEventListener("click", event => {
+    console.log("Nothing, i told u.");
+  });
+</script>
+</body>
+</html>
 <!-- Now it's your turn to make some changes
     - Draw some buttons, make your way between the click events and let me know they are pressed
     - What other events are you familiar with? Show it

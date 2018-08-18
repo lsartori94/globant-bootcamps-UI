@@ -4,19 +4,28 @@
     (function(){
         "use strict";
         var willPass = "Hi there";
-        wontPass = "nope";
+        var wontPass = "nope";
 
         console.log(`willPass = ${willPass}`);
         console.log(`wontPass = ${wontPass}`);
 
-        let someArr = [1, 2, 3, 4];
+        let someArr = [1, 2, "pepe", 4];
 
         function giveMe(inx) {
-            return someArr[counter];
+            return someArr[inx];
+        }
+        
+        function assert(condition, message) {
+            if (!condition) {
+                throw new Error(message || 'Assertion failed');
+            }
         }
 
         for (let counter= 0; counter <= someArr.length; counter++) {
-            console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
+            assert(typeof giveMe(counter) == 'number', `Array in position ${counter} is not a number`);
+            if(giveMe(counter) != undefined){
+                console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
+            }                      
         }
 
         console.log("The code continues");

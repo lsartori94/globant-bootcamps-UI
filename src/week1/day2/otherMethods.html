@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <h1>Some kind of demo</h1>
+
+    <p>Press F12 to view the messages in your browser console.</p>
+
+  <script>
+
+    console.log("This demo shows information about a for loop!");
+    
+    console.info("This for loop goes from 0 to 10")
+
+    console.time("Elapsed time");
+
+    console.groupCollapsed("Entries");
+
+    for (i = 0; i < 10; i++) {
+      console.count("Entry number");
+    }
+
+    console.groupEnd();
+
+    console.timeEnd("Elapsed time");
+
+  </script>
+
+  </body>
+</html>
