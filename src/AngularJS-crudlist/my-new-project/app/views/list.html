@@ -1,5 +1,6 @@
-<div class="jumbotron">
-    <nav class="my-row" role="toogle theme">
+<div ng-class="style">
+<div class="jumbotron" ng-class="style">
+    <nav class="my-row" role="create">
         <button class="btn btn-danger" type="button" ng-click="addTitle()" data-toggle="modal" data-target="#addBeerForm">
             Create
         </button>
@@ -17,8 +18,7 @@
                         <form>
                             <div class="form-group">
                                 <label class="my-label" for="beerName">Name</label>
-                                <input type="text" class="form-control" id="beerNameInput" placeholder="Beer Name" ng-model="name">
-
+                                <input type="text" class="form-control" id="beerNameInput" placeholder="Beer Name" ng-model="name">        
                             </div>
                             <div class="form-group">
                                 <label class="my-label" for="beerBrand">Brand</label>
@@ -26,42 +26,25 @@
                             </div>
                             <div class="form-group">
                                 <label class="my-label" for="beerPrice">Price</label>
-                                <input type="text" class="form-control" id="beerPriceInput" placeholder="Price" ng-model="price">
-
+                                <input type="text" class="form-control" id="beerPriceInput" placeholder="Price" ng-model="price">        
                             </div>
                             <div class="form-group">
                                 <label class="my-label" for="beerNotes">Notes</label>
                                 <input type="text" class="form-control" id="beerNotesInput" placeholder="Notes" ng-model="notes">
-                            </div>
-
+                            </div>        
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <!--editar boton dependiendo de que abro-->
+                        <!--edita boton dependiendo de que abro-->
                         <button type="button" style="margin: 5px" class="btn btn-primary hybrid" ng-click="hybridClick()" data-dismiss="modal"></button>
                     </div>
                 </div>
             </div>
         </div>
-        <!--"are you sure" modal-->
-        <div class="modal" id= "delete-confirmation" tabindex="-1" role="dialog" >
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h2 class="modal-title">Are you sure ?</h2>
-                </div>
-                
-                <div class="modal-footer">
-                   <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="delBeer($index)">Yes</button>
-                  <button type="button" style="margin: 5px"class="btn btn-secundary" data-dismiss="modal">No</button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <!--"are you sure" modal borra el primero-->
+        <div ng-include="'/views/modals/r-u-sure-modal.html'"></div>
+        
     </nav>
 
     <table class="items">
@@ -81,7 +64,7 @@
                 </button>
             </td>
             <td class="btnlist">
-                <button id="delete-beer" class="btn my-btn btn-danger" data-toggle="modal" data-target="#delete-confirmation"  alt="Delete Button" >Delete
+                <button id="delete-beer" class="btn my-btn btn-danger" ng-click="delBeer($index)" data-toggle="modal" data-target="#delete-confirmation"   alt="Delete Button" >Delete
                     <span class="glyphicon glyphicon-trash"></span>
                 </button>
 <!---->
@@ -91,4 +74,5 @@
 
 
 
+</div>
 </div>

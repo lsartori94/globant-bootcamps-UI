@@ -9,9 +9,10 @@
   */
 angular.module('listaCrudApp')
 
-  .controller('ListCtrl', ['$scope', 'ListService', function ($scope, ListService) {
+  .controller('ListCtrl', ['$scope', 'ListService',function ($scope, ListService) {
     
     ListService.refresh();
+    ListService.refreshTheme();
     $scope.beers = ListService.getBeers();
     $scope.row= '';
     //prepara el modal hibrido para hacerlo un creador
@@ -29,8 +30,10 @@ angular.module('listaCrudApp')
 
     };
     $scope.delBeer = function (index) {
+      
       ListService.deleteBeer(index);
     };
+    
     //prepara el modal hibrido para hacerlo un editor
     $scope.updBeer = function (index) {
       $('.modal-title').html('Edit Beer');

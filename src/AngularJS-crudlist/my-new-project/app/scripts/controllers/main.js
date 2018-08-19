@@ -8,6 +8,6 @@
  * Controller of the listaCrudApp
  */
 angular.module('listaCrudApp')
-  .controller('MainCtrl', [function () {
-    
+  .controller('MainCtrl',[function () {
+   
   } ]);

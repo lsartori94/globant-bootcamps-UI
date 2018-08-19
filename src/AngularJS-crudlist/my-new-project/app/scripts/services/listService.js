@@ -2,7 +2,25 @@
 angular.module('listaCrudApp')
 
     .service('ListService', [function () {
+
+        var themeChoice ;
+        this.refreshTheme= function(){
+        if (localStorage.getItem('themeChoice') === null) {
+            themeChoice = 'original' ;
+            localStorage.setItem('themeChoice', 'original');
+        } else {
+            themeChoice= localStorage.getItem('themeChoice');
+        }};
+        this.getTheme= function(){
+            return themeChoice;
+        };
+        this.setTheme= function(theme){
+            themeChoice=theme;
+            localStorage.setItem('themeChoice', theme);
+        };
+
         var beers;
+        var deletingRow='';
         
         this.save = function () { localStorage.setItem('beerList', JSON.stringify(beers)); };
 
@@ -24,7 +42,9 @@ angular.module('listaCrudApp')
         };
         //tiene que recibir un json y devolver un json sin el nuevo
         this.deleteBeer = function (index) {
+            console.log(index);
             beers.splice(index, 1);
+          
             this.save();
         };
         this.editBeer = function (index, beerdata) {
@@ -36,8 +56,5 @@ angular.module('listaCrudApp')
             beers[index].notes = beerdata[3];
             this.save();
         };
-        this.toggleTheme= function(sheet){
-            console.log('works');
-            angular.element(document.querySelector('#sitestyle')).setAttribute('href',sheet);
-           };
+        
     }]);

@@ -6,7 +6,7 @@
 }
 
 body {
-  padding: 0;
+  padding: 70px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -37,8 +37,7 @@ body {
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
-.container{
-  
+.container{  
   margin: 10px;
   
 }
@@ -100,21 +99,73 @@ body {
   border-bottom: 3px, solid, #171e42;
 }
 
-.item .btnlist{
-
+/*Globant Theme Syle*/
+.globant-theme {
+  
+  color: rgba(44, 221, 133, 0.753);
+  background-color:rgba(217, 243, 224, 0.753);
+ 
+  font-family:'courier new';
 }
+.globant-theme .jumbotron{ 
+  color: rgba(72, 235, 72, 0.753);
+  background-color: rgba(217, 243, 224, 0.753);
+}
+.globant-theme .jumbotron .btn{
+  border-color: #5cb85c;  
+  background-color: #5cb85c;
+  }
+.globant-theme .items {
+  background-color: rgb(216, 245, 179);
+  }
+.globant-theme .items .item{
+  color:green;
+    
+  }
+.globant-theme .navbar{
+  color: rgba(44, 221, 133, 0.753);
+  background-color:rgba(217, 243, 224, 0.753);
+}
+  /*end Globant Theme Syle*/
+  /*Daft Punk Theme Syle*/
+.daft-punk-theme {
+  
+  
+  font-family:Verdana;
+}
+.daft-punk-theme .items {
+  background-color: rgba(43, 3, 3, 0.795);
+}
+.daft-punk-theme .items .item{
+  color:rgba(204, 31, 0, 0.945);
+}
+.daft-punk-theme .jumbotron{
+  color: rgba(204, 31, 0, 0.842);
+  background-color: rgba(0, 0, 0, 0.897);
+}
+.daft-punk-theme .jumbotron .btn{
+  color: rgb(255, 30, 0);
+  background-color: rgb(15, 15, 15);
+  border-color: rgb(255, 0, 0)}
+.daft-punk-theme .navbar{
+    color: rgba(204, 31, 0, 0.842);
+  background-color: rgba(0, 0, 0, 0.897);
+  }
+  /*end Daft Punk Theme Syle*/
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
     padding: 20px;
   }
 
-  /* Remove the padding we set earlier */
+  
   .header,
   .marketing,
   .footer {
     padding-left: 0;
     padding-right: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    
   }
   /* Space out the masthead */
   .header {
@@ -135,8 +186,9 @@ body {
   margin-right: 50px;
   
 }
-.my-nav{
+.navbar{
   margin-bottom: 1px;
+  
 }
 .dropdown-menu{
   
