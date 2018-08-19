@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Syrah",
+        "origin": "Rhône, France",
+        "type": "Red"
+    },
+    {
+        "name": "Torrontés",
+        "region": "Orense, Spain",
+        "type": "White"
+    },
+    {
+        "name": "Malbec",
+        "region": "Cahors, France",
+        "type": "Red"
+    }
+]

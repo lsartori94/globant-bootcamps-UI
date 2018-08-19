@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Merienda" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Winery - Welcome</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body background="images/day-theme-bg.jpg">
+    <button type="reset" style="margin:20px 20px 0px 0px" class="btn btn-link btn-sm pull-right">Night mode</button>
+    <header><h1 style="margin: 0px 0px 0px 140px; font: 60px 'Merienda'"><strong>The Winery</strong></h1></header>
+    <div class="container">
+    <hr>
+      <button type="button" class="btn btn-success btn-lg pull-right">Add new</button>
+    <h2 style="margin-bottom: 20px; font: 30px 'Merienda'">Wine List</h2>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      $.getJSON("js/wineListJSON.json",function(data) {
+        console.log(data);
+      })
+    </script>
+    <div item-width="400px">
+        <table class="table-hover" style="margin-left: 195px; font: 26px 'Amatic SC'">
+          <tr><strong>
+            <th style="width: 350px">Varietal name</th>
+            <th style="width: 200px">Type</th>
+            <th style="width: 80px">View</th>
+            <th style="width: 80px">Edit</th>
+            <th style="width: 80px">Delete</th>
+          </strong></tr>
+          <tr>
+            <td>Malbec</td>
+            <td>Red</td>
+            <td><button type="button" class="btn btn-info btn-sm">View</button></td>
+            <td><button type="button" class="btn btn-warning btn-sm">Edit</button></td>
+            <td><button type="button" class="btn btn-danger btn-sm" onclick= alert()>Delete</button></td>
+          </tr>
+          <tr>
+            <td>Torrontés</td>
+            <td>White</td>
+            <td><button type="button" class="btn btn-info btn-sm">View</button></td>
+            <td><button type="button" class="btn btn-warning btn-sm">Edit</button></td>
+            <td><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+          </tr>
+          <tr>
+            <td>Syrah</td>
+            <td>Red</td>
+            <td><button type="button" class="btn btn-info btn-sm">View</button></td>
+            <td><button type="button" class="btn btn-warning btn-sm">Edit</button></td>
+            <td><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+          </tr>
+        </table>
+      </div>  
+  
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<script>
+    (function(){
+        "use strict";
+        var willPass = "Hi there";
+        wontPass = "nope";
+
+        console.log(`willPass = ${willPass}`);
+        console.log(`wontPass = ${wontPass}`);
+
+        let someArr = [1, 2, 3, 4];
+
+        function giveMe(inx) {
+            return someArr[counter];
+        }
+
+        for (let counter= 0; counter <= someArr.length; counter++) {
+            if(giveMe(counter) != undefined) {
+                console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
+            }
+            else {
+                throw new Error(`There is an undefined in Index = ${counter}`);
+            }
+        }
+
+        console.log("The code continues");
+    })()
+</script>

@@ -16,7 +16,10 @@
         }
 
         for (let counter= 0; counter <= someArr.length; counter++) {
-            console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
+            if(giveMe(counter) != undefined) {
+                console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
+            }
+            //else, if is undefined, not do anything
         }
 
         console.log("The code continues");
@@ -24,7 +27,7 @@
 </script>
 
 <!-- Now it's your turn to make some changes
-    - Refactor the previous code to make it work
+     Refactor the previous code to make it work
     - Add some kind of failsafe to never get an undefined while accessing the array
     - Do an Assertion
 
