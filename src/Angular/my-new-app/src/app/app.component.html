@@ -1,6 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:left">
-  <h1>
-    {{ title }}
-  </h1>
+<!--<h1>{{title}}</h1>-->
+<nav class="navbar navbar-default navbar-fixed-top">
+  
+   <h1>{{title}}</h1>
+  
+<nav class="navbar navbar-default navbar-fixed-top navright">
+    <button routerLink="/home">Home</button>
+    <button routerLink="/img-detail">Image Of The Day</button>
+  </nav>
+ 
+</nav>
+      
 <router-outlet></router-outlet>

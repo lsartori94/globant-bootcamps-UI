@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotoListComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

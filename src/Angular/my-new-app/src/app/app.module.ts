@@ -6,12 +6,14 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PhotoListComponent } from './photo-list/photo-list.component';
 import { ImageDetailComponent } from './image-detail/image-detail.component';
+import { RoverComponent } from './rover/rover.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhotoListComponent,
-    ImageDetailComponent
+    ImageDetailComponent,
+    RoverComponent
   ],
   imports: [
     BrowserModule,
