@@ -9,12 +9,16 @@
   */
 angular.module('listaCrudApp')
 
-  .controller('ListCtrl', ['$scope', 'ListService',function ($scope, ListService) {
+  .controller('ListCtrl', ['$scope', 'ListService', function ($scope, ListService) {
     
     ListService.refresh();
     ListService.refreshTheme();
     $scope.beers = ListService.getBeers();
     $scope.row= '';
+    $scope.indexToDelete;
+    $scope.setTheme= function(theme){
+      ListService.setTheme(theme);
+    };
     //prepara el modal hibrido para hacerlo un creador
     $scope.addTitle = function () {
       $('.hybrid').html('Create');
@@ -29,11 +33,14 @@ angular.module('listaCrudApp')
       ListService.setBeers({ name: $scope.name, brand: $scope.brand, price: $scope.price, notes: $scope.notes });
 
     };
-    $scope.delBeer = function (index) {
+    $scope.delBeer = function () {
       
-      ListService.deleteBeer(index);
+      ListService.deleteBeer($scope.indexToDelete);
     };
-    
+    $scope.delIndex = function(index){
+      $scope.indexToDelete = index;
+      console.log($scope.indexToDelete);
+  };
     //prepara el modal hibrido para hacerlo un editor
     $scope.updBeer = function (index) {
       $('.modal-title').html('Edit Beer');

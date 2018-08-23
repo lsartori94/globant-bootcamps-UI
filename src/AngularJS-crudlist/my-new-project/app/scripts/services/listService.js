@@ -2,25 +2,27 @@
 angular.module('listaCrudApp')
 
     .service('ListService', [function () {
-
-        var themeChoice ;
-        this.refreshTheme= function(){
-        if (localStorage.getItem('themeChoice') === null) {
-            themeChoice = 'original' ;
-            localStorage.setItem('themeChoice', 'original');
-        } else {
-            themeChoice= localStorage.getItem('themeChoice');
-        }};
-        this.getTheme= function(){
+        var themeChoice = localStorage.getItem('themeChoice');
+        this.refreshTheme = function () {
+            if (localStorage.getItem('themeChoice') === null) {
+                themeChoice = 'original';
+                localStorage.setItem('themeChoice', 'original');
+            } else {
+                themeChoice = localStorage.getItem('themeChoice');
+            }
+        };
+        this.getTheme = function () {
             return themeChoice;
         };
-        this.setTheme= function(theme){
-            themeChoice=theme;
+        this.setTheme = function (theme) {
+            themeChoice = theme;
             localStorage.setItem('themeChoice', theme);
         };
 
+
+      
         var beers;
-        var deletingRow='';
+        
         
         this.save = function () { localStorage.setItem('beerList', JSON.stringify(beers)); };
 
@@ -40,6 +42,7 @@ angular.module('listaCrudApp')
             beers.push(beer);
             this.save();
         };
+        
         //tiene que recibir un json y devolver un json sin el nuevo
         this.deleteBeer = function (index) {
             console.log(index);
