@@ -7,10 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PhotoListComponent implements OnInit {
   @Input() photos;
+
   constructor() {
+
+
   }
 
   ngOnInit() {
+    console.log(this.photos);
   }
 
 }
