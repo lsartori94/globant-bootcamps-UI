@@ -6,7 +6,7 @@ import { PhotoListComponent } from '../photo-list/photo-list.component';
   styleUrls: ['./rover.component.css']
 })
 export class RoverComponent implements OnInit {
-
+  valor = [];
   constructor() { }
 
   ngOnInit() {
