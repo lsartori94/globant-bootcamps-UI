@@ -7,24 +7,8 @@ import { PhotosService } from '../photos.service';
   styleUrls: ['./image-of-day.component.css']
 })
 export class ImageOfDayComponent implements OnInit {
-  sol: number = 1000;
-  camera: string ='';
-  page: number = 1;
-  api_key: string ='aZlmHCp3jD9sanwE8KvytidYArlTvlhwr3fEhYyM';
-
   constructor(private photosService: PhotosService) { }
 
-  onGet(){
-    this.photosService.getPhotos()
-    .subscribe(
-      (photos: any[]) => {
-        console.log(photos);
-
-      },
-      (error) => console.log (error)
-
-    );
-  }
   ngOnInit()  {
    
   }

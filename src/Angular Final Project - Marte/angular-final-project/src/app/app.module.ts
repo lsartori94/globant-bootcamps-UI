@@ -8,6 +8,9 @@ import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 import { ImageOfDayComponent } from './image-of-day/image-of-day.component';
 import { ImageDetailComponent } from './image-detail/image-detail.component';
 import { PhotosService } from './photos.service';
+import { SpiritComponent } from './image-gallery/spirit/spirit.component';
+import { CuriosityComponent } from './image-gallery/curiosity/curiosity.component';
+import { OpportunityComponent } from './image-gallery/opportunity/opportunity.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { PhotosService } from './photos.service';
     HeaderComponent,
     ImageGalleryComponent,
     ImageOfDayComponent,
-    ImageDetailComponent
+    ImageDetailComponent,
+    SpiritComponent,
+    CuriosityComponent,
+    OpportunityComponent
   ],
   imports: [
     BrowserModule,
