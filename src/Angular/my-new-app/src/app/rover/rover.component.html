@@ -1,25 +1,22 @@
 <div>
-  <p> aca va el rover con su nombre, y su barra ||||
-  {{name}} Rover,  Camera {{camera}}</p>
-  
-  <div>select Camera<select [(ngModel)]="Camera">
-      
-   
-      <option [ngValue]="came1">Cam1</option>
+  <p> aca va el rover con su nombre, y su barra |||| {{name}} Rover, Camera {{camera}}</p>
+
+  <div>select Camera
+    <select [(ngModel)]="camera">
+
+      <option [ngValue]="cam1">Cam1</option>
       <option [ngValue]="cam2">Cam2</option>
-    
- 
-</select>
-  select date Type<select [(ngModel)]="datetype">
-      
-   
-          <option [ngValue]="earth">Earth Date (dd/mm/yyyy)</option>
-          <option [ngValue]="mars">Mars Date (sol)</option>
-        
-     
+
     </select>
-</div>
+    select date Type
+    <select [(ngModel)]="datetype">
 
-<app-photo-list [photos]=camera></app-photo-list>
+      <option [ngValue]="earth">Earth Date (dd/mm/yyyy)</option>
+      <option [ngValue]="mars">Mars Date (sol)</option>
 
-//lo mismo hacer con el rover y su padre
+    </select>
+  </div>
+  <button (click)="control('contro')">control</button>
+  <app-photo-list [photos]=camera></app-photo-list>
+
+  //lo mismo hacer con el rover y su padre
