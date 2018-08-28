@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PhotoListComponent } from './photo-list/photo-list.component';
 import { ImageDetailComponent } from './image-detail/image-detail.component';
 import { RoverComponent } from './rover/rover.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RoverComponent } from './rover/rover.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

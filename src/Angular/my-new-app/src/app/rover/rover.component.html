@@ -1,6 +1,23 @@
 <div>
-  aca va el rover con su nombre, y su barra
-  <input type="text">{{camera}}
+  <p> aca va el rover con su nombre, y su barra ||||
+  {{name}} Rover,  Camera {{camera}}</p>
+  
+  <div>select Camera<select [(ngModel)]="Camera">
+      
+   
+      <option [ngValue]="came1">Cam1</option>
+      <option [ngValue]="cam2">Cam2</option>
+    
+ 
+</select>
+  select date Type<select [(ngModel)]="datetype">
+      
+   
+          <option [ngValue]="earth">Earth Date (dd/mm/yyyy)</option>
+          <option [ngValue]="mars">Mars Date (sol)</option>
+        
+     
+    </select>
 </div>
 
 <app-photo-list [photos]=camera></app-photo-list>
