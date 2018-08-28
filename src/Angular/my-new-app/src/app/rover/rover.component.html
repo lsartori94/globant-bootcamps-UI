@@ -1,23 +1,24 @@
-<p> {{name}} Rover, Camera {{camera}}</p>
+<h2> Photo Gallery</h2>
 <ng-container *ngFor="let r of rovers">
-  <div>{{r.name}} Rover
-    <select [(ngModel)]="r.camera">
+  <div><h1>{{r.name}} Rover</h1>
+    select Camera <select [(ngModel)]="r.camera">
 
       <option *ngFor="let c of r.cameras">{{c}}</option>
 
     </select>
 
-    <span>select Camera select date Type
-      <select [(ngModel)]="datetype">
-
-        <option [ngValue]="earth">Earth Date (dd/mm/yyyy)</option>
-        <option [ngValue]="mars">Mars Date (sol)</option>
-
+    <span>select Date Type
+      <select [(ngModel)]="r.datetype">
+        <option (NgValue)="earth_date">Earth Date (dd/mm/yyyy)</option>
+        <option (ngValue)="sol">Mars Date (sol)</option>
+        
       </select>
     </span>
+    {{datetype}}
+    <button (click)="control(r.datetype)">control</button>
+    <button (click)="consoleprint(r.datetype)">consoleprint</button>
   </div>
   <app-photo-list [photos]=r.camera></app-photo-list>
 </ng-container>
-<button (click)="control('contro')">control</button>
 
 //lo mismo hacer con el rover y su padre

@@ -14,7 +14,7 @@ export class PhotoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.photos);
+
   }
 
 }

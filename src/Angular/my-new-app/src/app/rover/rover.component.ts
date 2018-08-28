@@ -11,16 +11,25 @@ import { Rover, rovers } from '../rover';
 export class RoverComponent implements OnInit {
   @Input() name;
   photos = [];
- // camera: string;
-  date: string;
   datetype: string;
+  date: string;
   rovers = rovers;
   constructor() {
   //  this.camera = 'zion';
   }
-  control(data) {
-  //  this.camera = data;
-  //  console.log(this.camera);
+  control(datetype) {
+    if (datetype === 'Mars Date (sol)') {
+      datetype = 'sol';
+    } else {
+      if (datetype === 'Earth Date (dd/mm/yyyy)') {
+        datetype = 'earth_date';
+      }
+    }
+    this.datetype = datetype;
+    console.log(datetype);
+  }
+  consoleprint(data) {
+    console.log(data);
   }
   ngOnInit() {
   }
