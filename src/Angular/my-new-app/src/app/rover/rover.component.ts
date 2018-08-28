@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PhotoListComponent } from '../photo-list/photo-list.component';
 import { MarsApiPhotosService } from '../mars-api-photos.service';
-import { Rover } from '../rover';
+import { Rover, rovers } from '../rover';
 @Component({
   selector: 'app-rover',
   templateUrl: './rover.component.html',
@@ -11,15 +11,16 @@ import { Rover } from '../rover';
 export class RoverComponent implements OnInit {
   @Input() name;
   photos = [];
-  camera: string;
+ // camera: string;
   date: string;
   datetype: string;
+  rovers = rovers;
   constructor() {
-    this.camera = 'zion';
+  //  this.camera = 'zion';
   }
   control(data) {
-    this.camera = data;
-    console.log(this.camera);
+  //  this.camera = data;
+  //  console.log(this.camera);
   }
   ngOnInit() {
   }
