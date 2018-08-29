@@ -8,15 +8,16 @@
     </select>
 
     <span>select Date Type
-      <select [(ngModel)]="r.datetype">
-        <option (NgValue)="earth_date">Earth Date (dd/mm/yyyy)</option>
-        <option (ngValue)="sol">Mars Date (sol)</option>
+      <select [(ngModel)]='r.datetype'>
+        <option (NgValue)='earth_date'>Earth Date (dd/mm/yyyy)</option>
+        <option (ngValue)='sol'>Mars Date (sol)</option>
         
       </select>
     </span>
     {{datetype}}
-    <button (click)="control(r.datetype)">control</button>
-    <button (click)="consoleprint(r.datetype)">consoleprint</button>
+    <button (click)="controlDate(r.datetype)">control</button>
+    <button (click)="consoleprint(r)">consoleprint</button>
+    <button (click)="get-photos(r)">consoleprint</button>
   </div>
   <app-photo-list [photos]=r.camera></app-photo-list>
 </ng-container>

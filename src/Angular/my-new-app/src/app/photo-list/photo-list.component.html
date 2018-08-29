@@ -1,10 +1,11 @@
 <!--ACA SOLO VAN LAS FOTOS POR ESO SE LLAMA PHOTO LIST-->
-		<h3>holis {{photos}}</h3>
-<!--
-<ul class="list">1
-    <li *ngFor="let img of images">
-      <a routerLink="/detail/{{img.id}}">
-        <span>{{img.id}}</span> {{.name}}
+		<h3>holis </h3>
+
+<ul class="list">
+    <li *ngFor="let p of photos">
+      <a routerLink="/detail/{{p.id}}">
+        <span>{{p.id}}</span> {{p.name}}
+        <img src = {{p.img_src}}/>
       </a>
     </li>
-  </ul>-->
+  </ul>

@@ -1,23 +1,25 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PhotoListComponent } from '../photo-list/photo-list.component';
 import { MarsApiPhotosService } from '../mars-api-photos.service';
+import { Observable } from 'rxjs/Observable';
 import { Rover, rovers } from '../rover';
 @Component({
   selector: 'app-rover',
   templateUrl: './rover.component.html',
-  styleUrls: ['./rover.component.css']
+  styleUrls: ['./rover.component.css'],
+  providers: [ MarsApiPhotosService ]
 })
 
 export class RoverComponent implements OnInit {
   @Input() name;
   photos = [];
-  datetype: string;
+  dateTypeCorr: string;
   date: string;
   rovers = rovers;
-  constructor() {
+  constructor(private marsRoverPhotos: MarsApiPhotosService) {
   //  this.camera = 'zion';
   }
-  control(datetype) {
+  controlDate(datetype) {
     if (datetype === 'Mars Date (sol)') {
       datetype = 'sol';
     } else {
@@ -25,12 +27,13 @@ export class RoverComponent implements OnInit {
         datetype = 'earth_date';
       }
     }
-    this.datetype = datetype;
+    this.dateTypeCorr = datetype;
     console.log(datetype);
   }
   consoleprint(data) {
     console.log(data);
   }
+
   ngOnInit() {
   }
 
