@@ -3,6 +3,7 @@ import { PhotoListComponent } from '../photo-list/photo-list.component';
 import { MarsApiPhotosService } from '../mars-api-photos.service';
 import { Observable } from 'rxjs/Observable';
 import { Rover, rovers } from '../rover';
+import { CamPipePipe } from '../cam-pipe.pipe';
 @Component({
   selector: 'app-rover',
   templateUrl: './rover.component.html',
@@ -13,26 +14,18 @@ import { Rover, rovers } from '../rover';
 export class RoverComponent implements OnInit {
   @Input() name;
   photos = [];
-  dateTypeCorr: string;
   date: string;
   rovers = rovers;
-  constructor(private marsRoverPhotos: MarsApiPhotosService) {
+  earth_date = 'earth_date';
+  sol = 'sol';
+  constructor() {
   //  this.camera = 'zion';
   }
-  controlDate(datetype) {
-    if (datetype === 'Mars Date (sol)') {
-      datetype = 'sol';
-    } else {
-      if (datetype === 'Earth Date (dd/mm/yyyy)') {
-        datetype = 'earth_date';
-      }
-    }
-    this.dateTypeCorr = datetype;
-    console.log(datetype);
-  }
+
   consoleprint(data) {
     console.log(data);
   }
+  // getRoverPics(date: string, )
 
   ngOnInit() {
   }

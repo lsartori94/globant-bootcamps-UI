@@ -11,7 +11,7 @@ export class MarsApiPhotosService {
 
    }
 
-  getByDateAndCamera(rover: string,
+  getPicsByDate(rover: string,
     date: string,
     camera: string,
     date_type: string) {

@@ -1,7 +1,10 @@
 <h2> Photo Gallery</h2>
 <ng-container *ngFor="let r of rovers">
-  <div><h1>{{r.name}} Rover</h1>
-    select Camera <select [(ngModel)]="r.camera">
+  <div>
+    <h1>{{r.name}} Rover</h1>
+    <h3>{{r.camera | camPipe}} </h3>
+    select Camera
+    <select [(ngModel)]="r.camera">
 
       <option *ngFor="let c of r.cameras">{{c}}</option>
 
@@ -9,15 +12,15 @@
 
     <span>select Date Type
       <select [(ngModel)]='r.datetype'>
-        <option (NgValue)='earth_date'>Earth Date (dd/mm/yyyy)</option>
-        <option (ngValue)='sol'>Mars Date (sol)</option>
-        
+        <option [ngValue]='earth_date'>Earth Date (dd/mm/yyyy)</option>
+        <option [ngValue]='sol'>Mars Date (sol)</option>
+
       </select>
     </span>
     {{datetype}}
-    <button (click)="controlDate(r.datetype)">control</button>
+    <button (click)="controlDate(r.datetype)">controel</button>
     <button (click)="consoleprint(r)">consoleprint</button>
-    <button (click)="get-photos(r)">consoleprint</button>
+    <button (click)="get-photos(r)">get photos</button>
   </div>
   <app-photo-list [photos]=r.camera></app-photo-list>
 </ng-container>

@@ -8,13 +8,15 @@ import { PhotoListComponent } from './photo-list/photo-list.component';
 import { ImageDetailComponent } from './image-detail/image-detail.component';
 import { RoverComponent } from './rover/rover.component';
 import { FormsModule } from '@angular/forms';
+import { CamPipePipe } from './cam-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhotoListComponent,
     ImageDetailComponent,
-    RoverComponent
+    RoverComponent,
+    CamPipePipe
   ],
   imports: [
     BrowserModule,
