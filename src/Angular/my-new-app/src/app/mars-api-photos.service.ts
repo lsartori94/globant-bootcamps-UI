@@ -15,7 +15,13 @@ export class MarsApiPhotosService {
     date: string,
     camera: string,
     date_type: string) {
+      console.log(rover);
+      console.log(date);
+      console.log(camera.toLocaleLowerCase());
+      console.log(date_type);
+      // tslint:disable-next-line:max-line-length
+      console.log(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?${date_type}=${date}&camera=${camera}&api_key=${marsRoverKey}`);
     // tslint:disable-next-line:max-line-length
-    return this.http.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?${date_type}=${date}&camera=${camera}&&api_key=${marsRoverKey}`);
+    return this.http.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?${date_type}=${date}&camera=${camera}&api_key=${marsRoverKey}`);
   }
 }

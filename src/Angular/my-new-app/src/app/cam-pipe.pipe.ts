@@ -13,7 +13,7 @@ export class CamPipePipe implements PipeTransform {
       case 'NAVCAM': newStr = 'Navigation Camera'; break;
       case 'PANCAM': newStr = 'Panoramic Camera'; break;
       case 'MINITES': newStr = 'Miniature Thermal Emission Spectrometer (Mini-TES)'; break;
-      case 'MAST': newStr = 'Mast'; break;
+      case 'MAST': newStr = 'Mast Camera'; break;
       case 'CHEMCAM': newStr = 'Chemistry and Camera Complex'; break;
       case 'MAHLI': newStr = 'Mars Hand Lens Imager'; break;
       case 'MARDI': newStr = 'Mars Descent Imager'; break;

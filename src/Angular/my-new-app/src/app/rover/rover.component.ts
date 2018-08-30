@@ -12,20 +12,36 @@ import { CamPipePipe } from '../cam-pipe.pipe';
 })
 
 export class RoverComponent implements OnInit {
-  @Input() name;
-  photos = [];
+  @Input() rover;
+  photos: any[] = null;
   date: string;
-  rovers = rovers;
+ // rovers = rovers;
   earth_date = 'earth_date';
   sol = 'sol';
-  constructor() {
-  //  this.camera = 'zion';
+
+  constructor(private marsPhotos: MarsApiPhotosService) {
+
+
   }
 
   consoleprint(data) {
     console.log(data);
   }
-  // getRoverPics(date: string, )
+  getRoverPics(rover: string,
+    date: string,
+    camera: string,
+    date_type: string) {
+      console.log(rover);
+      console.log(date);
+      console.log(camera.toLocaleLowerCase());
+      console.log(date_type);
+      this.marsPhotos.getPicsByDate(rover, date, camera, date_type)
+      .subscribe(
+        response => {
+        this.photos = response.json();
+      });
+
+    }
 
   ngOnInit() {
   }

@@ -1,28 +1,28 @@
 <h2> Photo Gallery</h2>
-<ng-container *ngFor="let r of rovers">
+<ng-container>
+  <h1>{{rover.name}} Rover</h1> <span> {{rover.camera | camPipe}}</span> 
   <div>
-    <h1>{{r.name}} Rover</h1>
-    <h3>{{r.camera | camPipe}} </h3>
     select Camera
-    <select [(ngModel)]="r.camera">
+    <select [(ngModel)]="rover.camera">
 
-      <option *ngFor="let c of r.cameras">{{c}}</option>
+      <option *ngFor="let c of rover.cameras">{{c}}</option>
 
     </select>
 
-    <span>select Date Type
-      <select [(ngModel)]='r.datetype'>
+    <span>  select Date Type
+      <select [(ngModel)]='rover.datetype'>
         <option [ngValue]='earth_date'>Earth Date (dd/mm/yyyy)</option>
         <option [ngValue]='sol'>Mars Date (sol)</option>
 
       </select>
     </span>
-    {{datetype}}
-    <button (click)="controlDate(r.datetype)">controel</button>
-    <button (click)="consoleprint(r)">consoleprint</button>
-    <button (click)="get-photos(r)">get photos</button>
+    <button (click)="controlDate(rover.datetype)">control</button>
+    <button (click)="consoleprint(rover)">consoleprint</button>
+    <button (click)="getRoverPics(rover.name, rover.date, rover.camera, rover.datetype)">get photos</button>
+    <input type="text" [(ngModel)]='rover.date'>
   </div>
-  <app-photo-list [photos]=r.camera></app-photo-list>
+  <app-photo-list [localPhotos]=photos></app-photo-list>
 </ng-container>
 
-//lo mismo hacer con el rover y su padre
+<!--agregar la validacion para cargar las fotos,
+ el imput de numeros para SolDate y el calendario para la EarthDate-->
