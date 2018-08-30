@@ -1,3 +1,8 @@
-<p>
-  image-detail works!
-</p>
+<app-header></app-header>
+<div class="container ">
+  <table class="centrado">
+    <tr><img src="{{photosService.selectedPhoto.img_src}}" alt=""></tr>
+    <tr> {{photosService.selectedPhoto.camera.full_name}}</tr>
+    <tr> {{photosService.selectedPhoto.earth_date| date }}</tr>
+  </table>
+</div>

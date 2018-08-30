@@ -1,0 +1,11 @@
+img {
+    height: 40%;
+    max-height: 500px
+}
+.centrado {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center
+}

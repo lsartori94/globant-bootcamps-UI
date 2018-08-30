@@ -1,3 +1,15 @@
-<p>
-  header works!
-</p>
+<div class="row margin">
+    <div class="col-4">
+        <a routerLink="/"> <img src="/assets/images/home.png" class="home" alt=""></a>
+    </div>
+    <div class="col-4">
+        <button type="button" routerLink="/curiosity" class="btn btn-outline-info btn-height">Curiosity</button>
+        <button type="button" routerLink="/opportunity" class="btn btn-outline-info  btn-height">Opportunity</button>
+        <button type="button" routerLink="/spirit" class="btn btn-outline-info  btn-height">Spirit</button>
+    </div>
+    <div class="col-4">
+        <button type="button" routerLink="/image-of-day" (click)="onGetImgOfDay()" class="btn btn-outline-danger  btn-height">ImageOf Day</button>
+
+    </div>
+</div>
+

@@ -7,10 +7,10 @@ import { PhotosService } from '../photos.service';
   styleUrls: ['./image-of-day.component.css']
 })
 export class ImageOfDayComponent implements OnInit {
+
   constructor(private photosService: PhotosService) { }
 
-  ngOnInit()  {
-   
+  ngOnInit() {
   }
 
 }

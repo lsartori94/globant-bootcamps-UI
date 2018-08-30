@@ -1,4 +1,33 @@
-<p>
-  opportunity works!
-</p>
-<button (click)="onGetOpportunity()">getOport</button>
+<app-header></app-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <input type="number" #ref placeholder="enter sol number">
+      <button type="button" class="btn btn-warning" (click)="selectSol(ref.value)">Change Sol</button> Actual Sol : {{actualSol}}
+    </div>
+    <div class="col">
+      Select Camera:
+      <button type="button" class="btn btn-warning" *ngFor="let camera of opportunityCameras" (click)="selectCamera(camera)">{{camera}}</button>
+    </div>
+
+  </div>
+  <br>
+
+
+  <h2>Opportunity: {{ cameraFullName}}</h2>
+  <span *ngIf="!(photosService.page===1) &&  imgsFound" id="noImgsFound"><button type="button" class="btn btn-outline-danger left"
+      (click)="previousPage()"> Previous</button></span>
+  <button *ngIf="imgsFound" (click)="nextPage()" class="btn btn-outline-danger right"> Next</button>
+  <div *ngIf="!imgsFound" id="noImgsFound">There are no images found for that search.</div>
+
+
+  <div class="row centrado">
+    <div class="col-lg-3 col-md-6  col-sm-6 col-12" *ngFor="let photo of photosCopy">
+      <table>
+        <tr><a routerLink="/detail" (click)="photosService.selectPhoto(photo)"><img src="{{photo.img_src}}" alt=""></a></tr>
+        <tr> {{photo.camera.full_name}}</tr>
+        <tr> {{photo.earth_date| date }}</tr>
+      </table>
+    </div>
+  </div>

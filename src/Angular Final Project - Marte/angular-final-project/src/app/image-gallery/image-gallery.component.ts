@@ -10,26 +10,6 @@ export class ImageGalleryComponent implements OnInit {
 
   constructor(private photosService: PhotosService) { }
 
-  
-  onGet(){
-    this.photosService.getPhotos()
-    .subscribe(
-      (photos: any[]) => {
-        console.log(photos);
-        
-
-      },
-      (error) => console.log (error)
-
-    );
-  }
-
-
-
-
-
- 
-
   ngOnInit() {
   }
 

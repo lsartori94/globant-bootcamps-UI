@@ -1,4 +1,9 @@
-<p>
-  image-of-day works!
-</p>
 
+  <app-header></app-header>
+<div class="container ">
+  <table class="centrado">
+    <tr><img src="{{photosService.imgDay.img_src}}" alt=""></tr>
+    <tr> {{photosService.imgDay.camera.full_name}}</tr>
+    <tr> {{photosService.imgDay.earth_date| date }}</tr>
+  </table>
+</div>
