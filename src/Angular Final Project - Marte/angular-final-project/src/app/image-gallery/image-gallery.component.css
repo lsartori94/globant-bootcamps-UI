@@ -1,0 +1,25 @@
+
+#bg {
+    /* The image used */
+    background-image: url("/assets/images/mars.jpeg");
+    background-position: center;
+    /* Full height */
+    height: 98vh; 
+    /* Center and scale the image nicely */
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .margin{
+    padding: 2%;
+  }
+  .btn-height {
+    height: 10vh; 
+  }
+  .centrado {
+    text-align: center
+  }
+  h1 {
+      color: orange
+  }
+
+

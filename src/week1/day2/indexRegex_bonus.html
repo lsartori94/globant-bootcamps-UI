@@ -1,0 +1,98 @@
+<script>
+    class User {
+        constructor(email, username, password) {
+            this._email = email;
+            this._username = username;
+            this._password = password;
+            
+        }
+        get email(){
+            return this._email
+        }
+        set email(email){
+            this._email = email
+        }
+         get username(){
+            return this._username
+        }
+        set username(username){
+            this._username = username
+        }
+         get password(){
+            return this._password
+        }
+        set password(password){
+            this._password = password
+        }
+}
+    function enterEmail(user){
+        var valid = false;
+        var emailRegex = /^\w+@\w+\.\w+$/;
+        while (valid==false) {
+                result = prompt("Enter Your email", ""),
+                valid = result.match(emailRegex);
+            if (valid) {
+                alert("Email valid");
+                console.log(`You entered: ${result}`);
+                user._email = result;
+            } else {
+                alert("Email not valid");
+                
+                enterEmail(user);
+            }
+        }
+     }
+     function enterUsername(user){
+        var valid = false;
+        var userRegex = /^@[A-Za-z]+$/;
+        while (valid==false) {
+                result = prompt("Enter Your Usename. Must be: '@' followed by a word", ""),
+                valid = result.match(userRegex);
+            if (valid) {
+                alert("Username valid");
+                console.log(`You entered: ${result}`);
+                user._username = result;
+            } else {
+                alert("UserName not valid");
+                enterUsername(user);
+            }
+        }
+     }
+     function enterPass(user){
+        var valid = false;
+        var passRegex = /^\d\d\d[A-Za-z][A-Za-z][A-Za-z]$/;
+        while (valid==false) {
+                result = prompt("Enter Your Password. Must be a 3 Digits Number followed by a 3 letter word", ""),
+                valid = result.match(passRegex);
+            if (valid) {
+                alert("Password valid");
+                console.log(`You entered: ${result}`);
+                user._password = result;
+            } else {
+                alert("Password not valid");
+                enterPass(user);
+            }
+        }
+     }
+     function giveMeThosePoints(user){
+        var valid = false;
+        var passRegex = new RegExp("^"+ (user.username) + ":" + (user.password) +"$");  
+        while (valid==false) {
+                result = prompt("Enter your User Name followed by ':' and your password and you won't regret giving me those bonus points =)", "@username:123abc"),
+                valid = result.match(passRegex);
+            if (valid) {
+                alert("Password valid. Give me those points!!");
+                console.log(`You entered: ${result}`);
+                window.open("https://www.youtube.com/watch?v=dxTu11tOG68","_self");
+            } else {
+                alert("Password not valid");
+                giveMeThosePoints(user);
+            }
+        }
+     }
+    let user2 = new User();
+    enterEmail(user2);
+    enterUsername(user2);
+    enterPass(user2);
+    giveMeThosePoints(user2);
+</script>

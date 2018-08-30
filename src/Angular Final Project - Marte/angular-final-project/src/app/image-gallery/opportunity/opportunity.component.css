@@ -1,0 +1,13 @@
+img {
+    height: 200px;
+}
+.centrado {
+    text-align: center;
+    align-content: center
+}
+.right {
+    float: right
+}
+.left {
+    float: left
+}

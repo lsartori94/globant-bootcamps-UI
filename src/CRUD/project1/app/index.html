@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CRUD Chess</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin+Sketch" />
+  <link href="https://fonts.googleapis.com/css?family=Chelsea+Market" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <!-- letra personalizada. Desde el css no me funcionaba -->
+  <style>
+    body {
+      font-family: 'Chelsea Market';
+    }
+  </style>
+  <!-- endbuild -->
+
+</head>
+
+
+
+<!-- Cuerpo Visual de la web -->
+
+<body ng-app="App">
+
+  <!-- Todo lo que está adentro de la primer imagen -->
+  <div id="bg" ng-controller="CRUDController" ng-init="checkTheme()">
+    <div class="margin25">
+      <button type="button" class="btn btn-light" ng-click="toggleTheme()">
+        <h5> Change Theme </h5>
+      </button>
+    </div>
+    <div class="container">
+      <div class="row padding25">
+        <div class="col text-center">
+          <h1 class="display-4" id="tittleHeader">CHESS GAMES</h1>
+          <blockquote class="pull-center">
+            <p>“Chess holds its master in its own bonds, shackling the mind and brain so that the inner freedom of the very
+              strongest must suffer.”</p>
+            <small class="quoteAutor">Albert Einstein</small>
+          </blockquote>
+
+          <!-- Button trigger modal for Add Games -->
+          <button type="button" class="btn-lg btn-info" data-toggle="modal" data-target="#addGameModal">
+            Add Games </button>
+        </div>
+
+        <!-- Second column is empty for the bootstrap grid system -->
+        <div class="col">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Todo lo que está adentro de la segunda imagen -->
+
+  <div id="bg2" class="please-scroll" ng-controller="CRUDController">
+    <br>
+    <div class="container">
+      <table align="center">
+        <tr ng-repeat="game in games">
+          <td> {{ $index+1 }}</td>
+          <div class="container">
+            <td class="white">
+              <img align="left" class="whitePawn" src="/images/whitepawn.png" alt="">{{ game.white }} </td>
+            <td class="black">
+              <img align="left" class="blackPawn" src="/images/blackpawn.png" alt="">{{ game.black }} </td>
+            <td class="text-center"> Result:
+              <br>
+              <h1>{{game.result}} </h1>
+            </td>
+            <td class="text-center">
+              <h3>Moves:</h3> {{ game.moves }} </td>
+            <td>
+            <button type="button" class="btn btn-primary" ng-click="selectGame(games.indexOf(game))" data-toggle="modal" data-target="#editModal">
+              Edit </button>
+            <button type="button" class="btn btn-danger" ng-click="selectGame(games.indexOf(game))" data-toggle="modal" data-target="#deleteModal">Delete</button>
+            </td>
+        </tr>
+      </table>
+      </div>
+
+
+
+      <!-- Modal para agregar Game -->
+      <div class="modal fade text-center modalFondo" id="addGameModal" tabindex="-1" role="dialog" aria-labelledby="addGameModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addGameModal">Add as many games as you want!</h5>
+              <button type="button" class="close" ng-click="closeAddForm()" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="addForm" name="addForm">
+                <p>
+                  <label for="white">White: </label>
+                  <input name="white" type="text" ng-model="newGame.white" required> </p>
+                <p>
+                  <label for="black">Black: </label>
+                  <input name="black" type="text" ng-model="newGame.black" required>
+                </p>
+                <p>
+                  <label for="result">Result: </label>
+                  <select name="result" ng-model="newGame.result" required>
+                    <option value="1-0">1-0</option>
+                    <option value="1/2">1/2</option>
+                    <option value="0-1">0-1</option>
+                  </select>
+                </p>
+                <p>
+                  <label for="moves">Moves: </label>
+                  <textarea name="moves" ng-model="newGame.moves" cols="30" rows="5" required></textarea>
+                </p>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="closeAddForm()">Close</button>
+                  <button ng-disabled="addForm.$invalid" type="submit" ng-click="addGame()" class="btn btn-primary" data-dismiss="modal">Add Game</button>
+                </div>
+
+                <p>
+                  <div ng-if="!addForm.$dirty && submitted" class="valid">You added a game correctly!</div>
+                </p>
+                <p>
+                  <div ng-if="addForm.$dirty && addForm.$invalid" class="invalid">All inputs have to be filled</div>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal para eliminar game -->
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete this game?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-danger" ng-click="deleteGame(selectedGame.index)" data-dismiss="modal">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Modal para editar Games -->
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModal">Edit Game</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="editForm" name="editForm" class="text-center">
+                <p>
+                  <label for="selectedGamewhite">White: </label>
+                  <input name="selectedGamewhite" type="text" ng-model="selectedGame.white" required> </p>
+                <p>
+                  <label for="selectedGameblack">Black: </label>
+                  <input name="selectedGameblack" type="text" ng-model="selectedGame.black" required>
+                </p>
+                <p>
+                  <label for="selectedGameresult">Result: </label>
+                  <select name="selectedGameresult" ng-model="selectedGame.result" required>
+                    <option value="1-0">1-0</option>
+                    <option value="1/2">1/2</option>
+                    <option value="0-1">0-1</option>
+                  </select>
+                </p>
+                <p>
+                  <label for="selectedGamemoves">Moves: </label>
+                  <textarea name="selectedGamemoves" ng-model="selectedGame.moves" cols="30" rows="5" required></textarea>
+                </p>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button ng-disabled="editForm.$invalid" type="submit" ng-click="updateGame()" class="btn btn-primary" data-dismiss="modal">Save Changes</button>
+                </div>
+                <p>
+                  <div ng-if="editForm.$dirty && editForm.$invalid" class="invalid">All inputs have to be filled</div>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+
+
+
+
+
+
+
+
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+      !function (A, n, g, u, l, a, r) {
+        A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+          (A[l].q = A[l].q || []).push(arguments)
+        }, A[l].l = +new Date, a = n.createElement(g),
+          r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+      }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
+    </script>
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <script src="scripts/utilitys/customFunctions.js"></script>
+    <script src="scripts/utilitys/customClasses.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <!-- endbuild -->
+</body>
+
+</html>
