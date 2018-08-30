@@ -1,6 +1,7 @@
 img {
     height: 40%;
-    max-height: 500px
+    max-height: 60vh;
+    padding-top:100px
 }
 .centrado {
     position: fixed;
