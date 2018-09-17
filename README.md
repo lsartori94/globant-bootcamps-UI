@@ -274,7 +274,7 @@ I hope you liked that book, because it's going to stick with us for the rest of 
 
 I think you noticed by now, but there are a few exercises inside the reading material (awesome, I know). Do them, this is basic `Js` and we need you to have fun with it.
 
-Just put all your work under [day2-5](src/week1/day2-5) once you finished the exercises on page.
+Just put all your work under [day2-5](src/week1/days2-5) once you finished the exercises on page.
 
 → [index](#index)
 
